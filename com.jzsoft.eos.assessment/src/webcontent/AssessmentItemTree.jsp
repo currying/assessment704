@@ -58,8 +58,8 @@
 		var grid = nui.get("treegrid1");
 		grid
 				.setUrl("com.jzsoft.eos.assessment.assessmentItemBiz.queryAssessmentItem.biz.ext");
-		grid.setColumns([{header:"id",columns:[{header:"id"},{header:"id"}]}]);
-		grid.load();
+		var data =grid.load();
+		console.log(data);
 		function onDrawSummaryCell(e) {
 			//客户端汇总计算
 			if (e.field == "weighting") {

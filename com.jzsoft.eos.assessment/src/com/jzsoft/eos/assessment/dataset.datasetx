@@ -12,7 +12,7 @@
     </sourceConnections>
     <location x="480" y="60"/>
     <size height="192" width="150"/>
-    <figSize height="20" width="261"/>
+    <figSize height="20" width="151"/>
     <entPojoProperty id="assproperty0" name="assessmentScores" propertyType="EntityProperty" multi="true" association="assproperty7" refId="com.jzsoft.eos.assessment.dataset.AssessmentScore" isAssociationSource="true">
       <entViewField dict="false" dictTypeId="" entityField="assessmentScores.id" id="assessmentScores.id" label="id">
         <fieldView showAllAttr="false">
@@ -1561,7 +1561,7 @@
     </sourceConnections>
     <location x="480" y="316"/>
     <size height="210" width="150"/>
-    <figSize height="20" width="253"/>
+    <figSize height="20" width="150"/>
     <entPojoProperty id="assproperty3" name="assessmentScores" propertyType="EntityProperty" multi="true" association="assproperty9" refId="com.jzsoft.eos.assessment.dataset.AssessmentScore" isAssociationSource="true">
       <entViewField dict="false" dictTypeId="" entityField="assessmentScores.id" id="assessmentScores.id" label="id">
         <fieldView showAllAttr="false">
@@ -3132,9 +3132,9 @@
     <sourceConnections xsi:type="model:AssociationElement" id="assproperty10" name="AssessmentObject_Task" lineType="reference" sourceNode="node2" targetNode="node4" associationType="6" srcCascadeType="11" SrcRoleName="AssessmentObject" TgtRoleName="AssessmentTask" mockSrcNum="1" mockTgtNum="n">
       <fKAssociationField constraint="" srcProperty="property4" tgtProperty="property23"/>
     </sourceConnections>
-    <location x="60" y="242"/>
-    <size height="102" width="150"/>
-    <figSize height="20" width="241"/>
+    <location x="30" y="225"/>
+    <size height="121" width="166"/>
+    <figSize height="20" width="166"/>
     <entPojoProperty id="assproperty1" name="assessmentTasks" propertyType="EntityProperty" multi="true" association="assproperty10" refId="com.jzsoft.eos.assessment.dataset.AssessmentTask" isAssociationSource="true">
       <entViewField dict="false" dictTypeId="" entityField="assessmentTasks.id" id="assessmentTasks.id" label="id">
         <fieldView showAllAttr="false">
@@ -3492,7 +3492,7 @@
   <nodes xsi:type="model:PEntityNode" id="node3" name="AssessmentScore" nodeType="table" targetConnections="assproperty7 assproperty9" displayName="AssessmentScore" author="currying" instanceClass="com.jzsoft.eos.assessment.dataset.impl.AssessmentScoreImpl" table="ASSESSMENT_SCORE" genStrategy="uuid">
     <location x="690" y="197"/>
     <size height="174" width="150"/>
-    <figSize height="20" width="247"/>
+    <figSize height="20" width="150"/>
     <entPojoProperty id="assproperty6" name="assessmentGroup" association="assproperty7" refId="com.jzsoft.eos.assessment.dataset.AssessmentGroup">
       <entViewField dict="false" dictTypeId="" entityField="assessmentGroup.assessmentTaskId" id="assessmentGroup.assessmentTaskId" label="assessmentTaskId">
         <fieldView showAllAttr="false">
@@ -4531,7 +4531,7 @@
     <sourceConnections xsi:type="model:AssociationElement" id="assproperty12" name="AssessmentTask_Item" lineType="reference" sourceNode="node4" targetNode="node1" associationType="6" srcCascadeType="11" SrcRoleName="AssessmentTask" TgtRoleName="AssessmentItem" mockSrcNum="1" mockTgtNum="n">
       <fKAssociationField constraint="" srcProperty="property18" tgtProperty="property10"/>
     </sourceConnections>
-    <location x="270" y="215"/>
+    <location x="225" y="161"/>
     <size height="156" width="150"/>
     <figSize height="20" width="150"/>
     <entPojoProperty id="assproperty4" name="assessmentObject" association="assproperty10" refId="com.jzsoft.eos.assessment.dataset.AssessmentObject">
