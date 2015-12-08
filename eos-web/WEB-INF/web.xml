@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="defaultWebApp" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<!-- sso config
+	<filter>
+		<filter-name>SSO Filter</filter-name>
+		<filter-class>edu.yale.its.tp.cas.client.filter.CASFilter</filter-class>
+		<init-param>
+			<param-name>edu.yale.its.tp.cas.client.filter.loginUrl</param-name>
+			<param-value>http://localhost:8001/portal/sso.login</param-value>
+		</init-param>
+		<init-param>
+			<param-name>edu.yale.its.tp.cas.client.filter.validateUrl</param-name>
+			<param-value>http://127.0.0.1:8080/sso-server/serviceValidate</param-value>
+		</init-param>
+		<init-param>
+			<param-name>edu.yale.its.tp.cas.client.filter.serverName</param-name>
+			<param-value>localhost:8001</param-value>
+		</init-param>
+		<init-param>
+			<param-name>edu.yale.its.tp.cas.client.filter.initContextClass</param-name>
+			<param-value>org.gocom.components.coframe.init.CapInitContenxtAdapter</param-value>
+		</init-param>
+		<init-param>
+			<param-name>edu.yale.its.tp.cas.client.filter.userLoginMark</param-name>
+			<param-value>userObject</param-value>
+		</init-param>
+		<init-param>
+			<param-name>edu.yale.its.tp.cas.client.filter.filterExclusion</param-name>
+			<param-value>/default/coframe/auth/login/login.jsp,/default/coframe/auth/login/org.gocom.components.coframe.auth.LoginManager.login.biz.ext</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>SSO Filter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SSO Filter</filter-name>
+		<url-pattern>*.flow</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SSO Filter</filter-name>
+		<url-pattern>*.flowx</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SSO Filter</filter-name>
+		<url-pattern>*.html</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SSO Filter</filter-name>
+		<url-pattern>*.ajax</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SSO Filter</filter-name>
+		<url-pattern>*.ext</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SSO Filter</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SSO Filter</filter-name>
+		<url-pattern>*.beanx</url-pattern>
+	</filter-mapping>
+	
+	-->
+	
+	<filter>
+		<filter-name>InterceptorFilter</filter-name>
+		<filter-class>com.eos.access.http.InterceptorFilter</filter-class>
+	</filter>
+	<listener>
+		<listener-class>com.primeton.sca.host.webapp.SCAWebServiceServletListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.primeton.ext.runtime.core.RuntimeJ2EEHost</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.primeton.engine.core.impl.process.SessionListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.eos.access.http.UserObjectSessionListener</listener-class>
+	</listener>
+	<filter-mapping>
+		<filter-name>InterceptorFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+	</filter-mapping>
+
+	<context-param>
+		<param-name>flex.class.path</param-name>
+		<param-value>/WEB-INF/flex/hotfixes,/WEB-INF/flex/jars</param-value>
+	</context-param>
+	<listener>
+		<listener-class>flex.messaging.HttpFlexSession</listener-class>
+	</listener>
+
+	<servlet>
+ 		<servlet-name>ControllerServlet</servlet-name>
+ 		<servlet-class>
+ 			com.eos.access.http.ControllerServlet
+ 		</servlet-class>
+ 		<load-on-startup>10</load-on-startup>
+ 	</servlet>
+ 	<servlet-mapping>
+ 		<servlet-name>ControllerServlet</servlet-name>
+ 		<url-pattern>*.flow</url-pattern>
+ 	</servlet-mapping>
+ 	<servlet-mapping>
+ 		<servlet-name>ControllerServlet</servlet-name>
+ 		<url-pattern>*.flowx</url-pattern>
+ 	</servlet-mapping>
+ 	<servlet-mapping>
+ 		<servlet-name>ControllerServlet</servlet-name>
+ 		<url-pattern>*.gzip</url-pattern>
+ 	</servlet-mapping>
+ 	<servlet-mapping>
+ 		<servlet-name>ControllerServlet</servlet-name>
+ 		<url-pattern>*.ajax</url-pattern>
+ 	</servlet-mapping>
+ 	<servlet-mapping>
+ 		<servlet-name>ControllerServlet</servlet-name>
+ 		<url-pattern>*.beanx</url-pattern>
+ 	</servlet-mapping>
+ 	<servlet-mapping>
+ 		<servlet-name>ControllerServlet</servlet-name>
+ 		<url-pattern>*.debug</url-pattern>
+ 	</servlet-mapping>
+ 	<servlet-mapping>
+ 		<servlet-name>ControllerServlet</servlet-name>
+ 		<url-pattern>/common.remote</url-pattern>
+ 	</servlet-mapping>
+ 	<servlet-mapping>
+ 		<servlet-name>ControllerServlet</servlet-name>
+ 		<url-pattern>*.precompile</url-pattern>
+ 	</servlet-mapping>
+ 	<servlet-mapping>
+ 		<servlet-name>ControllerServlet</servlet-name>
+ 		<url-pattern>*.ext</url-pattern>
+ 	</servlet-mapping>
+ 	<servlet-mapping>
+ 		<servlet-name>ControllerServlet</servlet-name>
+ 		<url-pattern>*.terminate</url-pattern>
+ 	</servlet-mapping>
+ 	
+ 	<servlet>
+		<servlet-name>MessageBrokerServlet</servlet-name>
+        	<servlet-class>flex.messaging.MessageBrokerServlet</servlet-class>
+        	<init-param>
+            		<param-name>services.configuration.file</param-name>
+            		<param-value>/WEB-INF/flex/services-config.xml</param-value>
+        	</init-param>
+        	<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MessageBrokerServlet</servlet-name>
+		<url-pattern>/messagebroker/*</url-pattern>
+	</servlet-mapping>
+
+	<session-config>
+		<session-timeout>600</session-timeout>
+	</session-config>
+	<welcome-file-list>
+		<welcome-file>coframe/auth/index.jsp</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<mime-mapping>
+		<extension>xml</extension>
+		<mime-type>application/xml</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>war</extension>
+		<mime-type>application/zip</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>ear</extension>
+		<mime-type>application/zip</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>zip</extension>
+		<mime-type>application/zip</mime-type>
+	</mime-mapping>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/common/notFound.jsp</location>
+	</error-page>
+	<!--
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<page-encoding>UTF-8</page-encoding>
+		</jsp-property-group>
+	</jsp-config>
+	-->
+</web-app>
