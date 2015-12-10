@@ -23,7 +23,9 @@ OutlookTree</title> <link href="../demo.css" rel="stylesheet" type="text/css" />
 	style="padding:2px;border-top:0;border-left:0;border-right:0;"> <a
 	class="nui-button" iconCls="icon-add" plain="true"
 	onclick="addObject()"></a> <!-- 新建 --> <a class="nui-button"
-	iconCls="icon-add" plain="true" onclick="addTask()"></a> <a
+	iconCls="icon-add" plain="true" onclick="addTask()"></a>
+	<a class="nui-button" iconCls="icon-add" plain="true" onclick="expandAll()"/>
+	 <a
 	class="nui-button" iconCls="icon-edit" plain="true"></a> <!-- 修改  --> <a
 	class="nui-button" iconCls="icon-remove" plain="true"></a> <!-- 删除  -->
 <a class="nui-button" iconCls="icon-search" plain="true"></a> <!-- 查找  -->
@@ -40,10 +42,15 @@ OutlookTree</title> <link href="../demo.css" rel="stylesheet" type="text/css" />
 <div title="center" region="center"> <div id="itemAndGroupTabs"
 	class="nui-tabs" activeIndex="0" style="width:100%;height:100%;"
 	bodyStyle="padding:0;border:0;" tabPosition="bottom"> <div
-	title="考核指标" url="AssessmentItem.jsp"></div>  </div> </div> </div> <script type="text/javascript">
+	title="考核指标" url="AssessmentItem.jsp"></div> </div> </div> </div> <script
+	type="text/javascript">
 		nui.parse();
 		var itemTree = nui.get("taskTree");
 		//新增Object
+		function expandAll() {
+			var tree = nui.get("taskTree");
+			tree.expandAll();
+		}
 		function addObject() {
 			nui.open({
 				url : "AssessmentObjectForm.jsp",
