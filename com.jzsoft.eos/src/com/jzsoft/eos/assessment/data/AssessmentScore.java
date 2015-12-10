@@ -27,7 +27,7 @@ import commonj.sdo.helper.TypeHelper;
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentScore#getScore <em>Score</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentScore#getIsComputed <em>IsComputed</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentScore#getGroup <em>Group</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentScore#getAssessmentItem <em>AssessmentItem</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentScore#getItem <em>Item</em>}</li>
  * </ul>
  * </p>
  *
@@ -156,26 +156,26 @@ public interface AssessmentScore extends DataObject {
 	public void setGroup(AssessmentGroup group);
 
 	/**
-	 * Returns the value of the '<em><b>AssessmentItem</b></em>' attribute.
+	 * Returns the value of the '<em><b>Item</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>AssessmentItem</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Item</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>AssessmentItem</em>' attribute.
-	 * @see #setAssessmentItem(com.jzsoft.eos.assessment.data.AssessmentItem)
+	 * @return the value of the '<em>Item</em>' attribute.
+	 * @see #setItem(com.jzsoft.eos.assessment.data.AssessmentItem)
 	 */
-	public AssessmentItem getAssessmentItem();
+	public AssessmentItem getItem();
 
 	/**
-	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentScore#getAssessmentItem <em>AssessmentItem</em>}' attribute.
+	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentScore#getItem <em>Item</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>AssessmentItem</em>' attribute.
-	 * @see #getAssessmentItem()
+	 * @param value the new value of the '<em>Item</em>' attribute.
+	 * @see #getItem()
 	 */
-	public void setAssessmentItem(AssessmentItem assessmentItem);
+	public void setItem(AssessmentItem item);
 
 
 }

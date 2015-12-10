@@ -33,8 +33,8 @@ import java.util.List;
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentItem#getDescription <em>Description</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentItem#getParents <em>Parents</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentItem#getParent <em>Parent</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentItem#getAssessmentScores <em>AssessmentScores</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentItem#getAssessmentTask <em>AssessmentTask</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentItem#getScores <em>Scores</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentItem#getTask <em>Task</em>}</li>
  * </ul>
  * </p>
  *
@@ -251,48 +251,48 @@ public interface AssessmentItem extends DataObject {
 	public void setParent(AssessmentItem parent);
 
 	/**
-	 * Returns the value of the '<em><b>AssessmentScores</b></em>' attribute.
+	 * Returns the value of the '<em><b>Scores</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>AssessmentScores</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Scores</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>AssessmentScores</em>' attribute.
-	 * @see #setAssessmentScores(com.jzsoft.eos.assessment.data.AssessmentScore)
+	 * @return the value of the '<em>Scores</em>' attribute.
+	 * @see #setScores(com.jzsoft.eos.assessment.data.AssessmentScore)
 	 */
-	public List<AssessmentScore> getAssessmentScores();
+	public List<AssessmentScore> getScores();
 
 	/**
-	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentItem#getAssessmentScores <em>AssessmentScores</em>}' attribute.
+	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentItem#getScores <em>Scores</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>AssessmentScores</em>' attribute.
-	 * @see #getAssessmentScores()
+	 * @param value the new value of the '<em>Scores</em>' attribute.
+	 * @see #getScores()
 	 */
-	public void setAssessmentScores(List<AssessmentScore> assessmentScores);
+	public void setScores(List<AssessmentScore> scores);
 
 	/**
-	 * Returns the value of the '<em><b>AssessmentTask</b></em>' attribute.
+	 * Returns the value of the '<em><b>Task</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>AssessmentTask</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Task</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>AssessmentTask</em>' attribute.
-	 * @see #setAssessmentTask(com.jzsoft.eos.assessment.data.AssessmentTask)
+	 * @return the value of the '<em>Task</em>' attribute.
+	 * @see #setTask(com.jzsoft.eos.assessment.data.AssessmentTask)
 	 */
-	public AssessmentTask getAssessmentTask();
+	public AssessmentTask getTask();
 
 	/**
-	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentItem#getAssessmentTask <em>AssessmentTask</em>}' attribute.
+	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentItem#getTask <em>Task</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>AssessmentTask</em>' attribute.
-	 * @see #getAssessmentTask()
+	 * @param value the new value of the '<em>Task</em>' attribute.
+	 * @see #getTask()
 	 */
-	public void setAssessmentTask(AssessmentTask assessmentTask);
+	public void setTask(AssessmentTask task);
 
 
 }

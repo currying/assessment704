@@ -28,7 +28,7 @@ import java.util.List;
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentObjectImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentObjectImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentObjectImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentObjectImpl#getAssessmentTasks <em>AssessmentTasks</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentObjectImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,7 +46,7 @@ public class AssessmentObjectImpl extends ExtendedDataObjectImpl implements Asse
 	public final static int INDEX_NUMBER = 1;
 	public final static int INDEX_NAME = 2;
 	public final static int INDEX_DESCRIPTION = 3;
-	public final static int INDEX_ASSESSMENTTASKS = 4;
+	public final static int INDEX_TASKS = 4;
 	public final static int SDO_PROPERTY_COUNT = 5;
 
 	public final static int EXTENDED_PROPERTY_COUNT = -1;
@@ -176,29 +176,29 @@ public class AssessmentObjectImpl extends ExtendedDataObjectImpl implements Asse
 	}
 
 	/**
-	 * Returns the value of the '<em><b>AssessmentTasks</b></em>' attribute.
+	 * Returns the value of the '<em><b>Tasks</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>AssessmentTasks</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Tasks</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>AssessmentTasks</em>' attribute.
-	 * @see #setAssessmentTasks(com.jzsoft.eos.assessment.data.AssessmentTask)
+	 * @return the value of the '<em>Tasks</em>' attribute.
+	 * @see #setTasks(com.jzsoft.eos.assessment.data.AssessmentTask)
 	 */
-	public List<AssessmentTask> getAssessmentTasks() {
-		return (List<AssessmentTask>) getList(INDEX_ASSESSMENTTASKS, true);
+	public List<AssessmentTask> getTasks() {
+		return (List<AssessmentTask>) getList(INDEX_TASKS, true);
 	}
 
 	/**
-	 * Sets the value of the '{@link com.primeton.eos.Test#getAssessmentTasks <em>AssessmentTasks</em>}' attribute.
+	 * Sets the value of the '{@link com.primeton.eos.Test#getTasks <em>Tasks</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>AssessmentTasks</em>' attribute.
-	 * @see #getAssessmentTasks()
+	 * @param value the new value of the '<em>Tasks</em>' attribute.
+	 * @see #getTasks()
 	 */
-	public void setAssessmentTasks(List<AssessmentTask> assessmentTasks) {
-		super.setByIndex(INDEX_ASSESSMENTTASKS, assessmentTasks);
+	public void setTasks(List<AssessmentTask> tasks) {
+		super.setByIndex(INDEX_TASKS, tasks);
 	}
 
 

@@ -28,7 +28,7 @@ import commonj.sdo.Type;
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentScoreImpl#getScore <em>Score</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentScoreImpl#getIsComputed <em>IsComputed</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentScoreImpl#getGroup <em>Group</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentScoreImpl#getAssessmentItem <em>AssessmentItem</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentScoreImpl#getItem <em>Item</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,7 +47,7 @@ public class AssessmentScoreImpl extends ExtendedDataObjectImpl implements Asses
 	public final static int INDEX_SCORE = 2;
 	public final static int INDEX_ISCOMPUTED = 3;
 	public final static int INDEX_GROUP = 4;
-	public final static int INDEX_ASSESSMENTITEM = 5;
+	public final static int INDEX_ITEM = 5;
 	public final static int SDO_PROPERTY_COUNT = 6;
 
 	public final static int EXTENDED_PROPERTY_COUNT = -1;
@@ -203,29 +203,29 @@ public class AssessmentScoreImpl extends ExtendedDataObjectImpl implements Asses
 	}
 
 	/**
-	 * Returns the value of the '<em><b>AssessmentItem</b></em>' attribute.
+	 * Returns the value of the '<em><b>Item</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>AssessmentItem</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Item</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>AssessmentItem</em>' attribute.
-	 * @see #setAssessmentItem(com.jzsoft.eos.assessment.data.AssessmentItem)
+	 * @return the value of the '<em>Item</em>' attribute.
+	 * @see #setItem(com.jzsoft.eos.assessment.data.AssessmentItem)
 	 */
-	public AssessmentItem getAssessmentItem() {
-		return (AssessmentItem) DataUtil.toDataObject(super.getByIndex(INDEX_ASSESSMENTITEM, true));
+	public AssessmentItem getItem() {
+		return (AssessmentItem) DataUtil.toDataObject(super.getByIndex(INDEX_ITEM, true));
 	}
 
 	/**
-	 * Sets the value of the '{@link com.primeton.eos.Test#getAssessmentItem <em>AssessmentItem</em>}' attribute.
+	 * Sets the value of the '{@link com.primeton.eos.Test#getItem <em>Item</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>AssessmentItem</em>' attribute.
-	 * @see #getAssessmentItem()
+	 * @param value the new value of the '<em>Item</em>' attribute.
+	 * @see #getItem()
 	 */
-	public void setAssessmentItem(AssessmentItem assessmentItem) {
-		super.setByIndex(INDEX_ASSESSMENTITEM, assessmentItem);
+	public void setItem(AssessmentItem item) {
+		super.setByIndex(INDEX_ITEM, item);
 	}
 
 

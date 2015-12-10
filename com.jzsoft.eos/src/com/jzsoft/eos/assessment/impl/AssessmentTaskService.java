@@ -14,13 +14,13 @@ import com.jzsoft.eos.assessment.data.AssessmentTask;
  * Title: 程序的中文名称
  * Description: 程序功能的描述
  * </pre>
+ * 
  * @author LUCHAO
  * @version 1.00.00
  * 
  */
 /*
- * 修改历史
- * $log$
+ * 修改历史 $log$
  */
 public class AssessmentTaskService extends DASDaoSupport implements
 		IAssessmentTaskService {
@@ -33,20 +33,28 @@ public class AssessmentTaskService extends DASDaoSupport implements
 	}
 
 	public AssessmentTask[] getAllTasks() {
-		IDASCriteria dasCriteria = getDASTemplate().createCriteria(AssessmentTask.QNAME);
-		AssessmentTask[] results = getDASTemplate().queryEntitiesByCriteriaEntity(AssessmentTask.class,
-				dasCriteria);
-		
+		IDASCriteria dasCriteria = getDASTemplate().createCriteria(
+				AssessmentTask.QNAME).asc("number");
+		AssessmentTask[] results = getDASTemplate()
+				.queryEntitiesByCriteriaEntity(AssessmentTask.class,
+						dasCriteria);
+
 		return results;
 	}
 
 	public AssessmentTask[] getTasksByObjectId(long objectId) {
-		IDASCriteria dasCriteria = getDASTemplate().createCriteria(AssessmentTask.QNAME);
+		IDASCriteria dasCriteria = getDASTemplate().createCriteria(
+				AssessmentTask.QNAME);
 		dasCriteria.add(ExpressionHelper.eq("object.id", objectId));
-		AssessmentTask[] results = getDASTemplate().queryEntitiesByCriteriaEntity(AssessmentTask.class,
-				dasCriteria);
-		
+		AssessmentTask[] results = getDASTemplate()
+				.queryEntitiesByCriteriaEntity(AssessmentTask.class,
+						dasCriteria);
+
 		System.out.println(objectId);
 		return results;
+	}
+
+	public void addAssessmentTask(AssessmentTask assessmentTask) {
+		getDASTemplate().insertEntity(assessmentTask);
 	}
 }

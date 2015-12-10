@@ -32,9 +32,9 @@ import java.util.List;
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentTaskImpl#getScore <em>Score</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentTaskImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentTaskImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentTaskImpl#getAssessmentObject <em>AssessmentObject</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentTaskImpl#getAssessmentGroups <em>AssessmentGroups</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentTaskImpl#getAssessmentItems <em>AssessmentItems</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentTaskImpl#getObject <em>Object</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentTaskImpl#getGroups <em>Groups</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentTaskImpl#getItems <em>Items</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,9 +54,9 @@ public class AssessmentTaskImpl extends ExtendedDataObjectImpl implements Assess
 	public final static int INDEX_SCORE = 3;
 	public final static int INDEX_STATUS = 4;
 	public final static int INDEX_DESCRIPTION = 5;
-	public final static int INDEX_ASSESSMENTOBJECT = 6;
-	public final static int INDEX_ASSESSMENTGROUPS = 7;
-	public final static int INDEX_ASSESSMENTITEMS = 8;
+	public final static int INDEX_OBJECT = 6;
+	public final static int INDEX_GROUPS = 7;
+	public final static int INDEX_ITEMS = 8;
 	public final static int SDO_PROPERTY_COUNT = 9;
 
 	public final static int EXTENDED_PROPERTY_COUNT = -1;
@@ -238,81 +238,81 @@ public class AssessmentTaskImpl extends ExtendedDataObjectImpl implements Assess
 	}
 
 	/**
-	 * Returns the value of the '<em><b>AssessmentObject</b></em>' attribute.
+	 * Returns the value of the '<em><b>Object</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>AssessmentObject</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Object</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>AssessmentObject</em>' attribute.
-	 * @see #setAssessmentObject(com.jzsoft.eos.assessment.data.AssessmentObject)
+	 * @return the value of the '<em>Object</em>' attribute.
+	 * @see #setObject(com.jzsoft.eos.assessment.data.AssessmentObject)
 	 */
-	public AssessmentObject getAssessmentObject() {
-		return (AssessmentObject) DataUtil.toDataObject(super.getByIndex(INDEX_ASSESSMENTOBJECT, true));
+	public AssessmentObject getObject() {
+		return (AssessmentObject) DataUtil.toDataObject(super.getByIndex(INDEX_OBJECT, true));
 	}
 
 	/**
-	 * Sets the value of the '{@link com.primeton.eos.Test#getAssessmentObject <em>AssessmentObject</em>}' attribute.
+	 * Sets the value of the '{@link com.primeton.eos.Test#getObject <em>Object</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>AssessmentObject</em>' attribute.
-	 * @see #getAssessmentObject()
+	 * @param value the new value of the '<em>Object</em>' attribute.
+	 * @see #getObject()
 	 */
-	public void setAssessmentObject(AssessmentObject assessmentObject) {
-		super.setByIndex(INDEX_ASSESSMENTOBJECT, assessmentObject);
+	public void setObject(AssessmentObject object) {
+		super.setByIndex(INDEX_OBJECT, object);
 	}
 
 	/**
-	 * Returns the value of the '<em><b>AssessmentGroups</b></em>' attribute.
+	 * Returns the value of the '<em><b>Groups</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>AssessmentGroups</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Groups</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>AssessmentGroups</em>' attribute.
-	 * @see #setAssessmentGroups(com.jzsoft.eos.assessment.data.AssessmentGroup)
+	 * @return the value of the '<em>Groups</em>' attribute.
+	 * @see #setGroups(com.jzsoft.eos.assessment.data.AssessmentGroup)
 	 */
-	public List<AssessmentGroup> getAssessmentGroups() {
-		return (List<AssessmentGroup>) getList(INDEX_ASSESSMENTGROUPS, true);
+	public List<AssessmentGroup> getGroups() {
+		return (List<AssessmentGroup>) getList(INDEX_GROUPS, true);
 	}
 
 	/**
-	 * Sets the value of the '{@link com.primeton.eos.Test#getAssessmentGroups <em>AssessmentGroups</em>}' attribute.
+	 * Sets the value of the '{@link com.primeton.eos.Test#getGroups <em>Groups</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>AssessmentGroups</em>' attribute.
-	 * @see #getAssessmentGroups()
+	 * @param value the new value of the '<em>Groups</em>' attribute.
+	 * @see #getGroups()
 	 */
-	public void setAssessmentGroups(List<AssessmentGroup> assessmentGroups) {
-		super.setByIndex(INDEX_ASSESSMENTGROUPS, assessmentGroups);
+	public void setGroups(List<AssessmentGroup> groups) {
+		super.setByIndex(INDEX_GROUPS, groups);
 	}
 
 	/**
-	 * Returns the value of the '<em><b>AssessmentItems</b></em>' attribute.
+	 * Returns the value of the '<em><b>Items</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>AssessmentItems</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Items</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>AssessmentItems</em>' attribute.
-	 * @see #setAssessmentItems(com.jzsoft.eos.assessment.data.AssessmentItem)
+	 * @return the value of the '<em>Items</em>' attribute.
+	 * @see #setItems(com.jzsoft.eos.assessment.data.AssessmentItem)
 	 */
-	public List<AssessmentItem> getAssessmentItems() {
-		return (List<AssessmentItem>) getList(INDEX_ASSESSMENTITEMS, true);
+	public List<AssessmentItem> getItems() {
+		return (List<AssessmentItem>) getList(INDEX_ITEMS, true);
 	}
 
 	/**
-	 * Sets the value of the '{@link com.primeton.eos.Test#getAssessmentItems <em>AssessmentItems</em>}' attribute.
+	 * Sets the value of the '{@link com.primeton.eos.Test#getItems <em>Items</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>AssessmentItems</em>' attribute.
-	 * @see #getAssessmentItems()
+	 * @param value the new value of the '<em>Items</em>' attribute.
+	 * @see #getItems()
 	 */
-	public void setAssessmentItems(List<AssessmentItem> assessmentItems) {
-		super.setByIndex(INDEX_ASSESSMENTITEMS, assessmentItems);
+	public void setItems(List<AssessmentItem> items) {
+		super.setByIndex(INDEX_ITEMS, items);
 	}
 
 

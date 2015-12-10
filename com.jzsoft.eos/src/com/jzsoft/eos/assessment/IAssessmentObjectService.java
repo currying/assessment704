@@ -4,6 +4,8 @@ import com.jzsoft.eos.assessment.data.AssessmentObject;
 
 public interface IAssessmentObjectService {
 	public abstract AssessmentObject[] getAllObjects();
-	
+
 	public abstract AssessmentObject[] loadObjectTaskTreeData();
+
+	public abstract void addAssessmentObject(AssessmentObject assessmentObject);
 }
