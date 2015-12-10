@@ -5,40 +5,4 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/sca http://www.osoa.org/xmlns/sca/1.0/spring-sca.xsd">
-	<bean id="AssessmentObjectBean" parent="DefaultBaseTransactionProxy">
-		<property name="proxyInterfaces">
-			<list>
-				<value>com.jzsoft.eos.assessment.IAssessmentObjectService</value>
-			</list>
-		</property>
-		<property name="target">
-			<bean class="com.jzsoft.eos.assessment.AssessmentObjectService">
-				<property name="dataSource" ref="DefaultDataSource" />
-			</bean>
-		</property>
-	</bean>
-	<bean id="AssessmentTaskBean" parent="DefaultBaseTransactionProxy">
-		<property name="proxyInterfaces">
-			<list>
-				<value>com.jzsoft.eos.assessment.IAssessmentTaskService</value>
-			</list>
-		</property>
-		<property name="target">
-			<bean class="com.jzsoft.eos.assessment.AssessmentTaskService">
-				<property name="dataSource" ref="DefaultDataSource" />
-			</bean>
-		</property>
-	</bean>
-	<bean id="AssessmentItemBean" parent="DefaultBaseTransactionProxy">
-		<property name="proxyInterfaces">
-			<list>
-				<value>com.jzsoft.eos.assessment.IAssessmentItemService</value>
-			</list>
-		</property>
-		<property name="target">
-			<bean class="com.jzsoft.eos.assessment.AssessmentItemService">
-				<property name="dataSource" ref="DefaultDataSource" />
-			</bean>
-		</property>
-	</bean>
 </beans>
