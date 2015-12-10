@@ -28,10 +28,10 @@ import java.util.List;
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getName <em>Name</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getEmail <em>Email</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getDescription <em>Description</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getTask <em>Task</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getParent <em>Parent</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getChildren <em>Children</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getScores <em>Scores</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getAssessmentTask <em>AssessmentTask</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,9 +58,9 @@ public interface AssessmentGroup extends DataObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(long)
+	 * @see #setId(java.lang.String)
 	 */
-	public long getId();
+	public String getId();
 
 	/**
 	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getId <em>Id</em>}' attribute.
@@ -69,7 +69,7 @@ public interface AssessmentGroup extends DataObject {
 	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
 	 */
-	public void setId(long id);
+	public void setId(String id);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -138,28 +138,6 @@ public interface AssessmentGroup extends DataObject {
 	public void setDescription(String description);
 
 	/**
-	 * Returns the value of the '<em><b>Task</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Task</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Task</em>' attribute.
-	 * @see #setTask(com.jzsoft.eos.assessment.data.AssessmentTask)
-	 */
-	public AssessmentTask getTask();
-
-	/**
-	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getTask <em>Task</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Task</em>' attribute.
-	 * @see #getTask()
-	 */
-	public void setTask(AssessmentTask task);
-
-	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -224,6 +202,28 @@ public interface AssessmentGroup extends DataObject {
 	 * @see #getScores()
 	 */
 	public void setScores(List<AssessmentScore> scores);
+
+	/**
+	 * Returns the value of the '<em><b>AssessmentTask</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>AssessmentTask</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>AssessmentTask</em>' attribute.
+	 * @see #setAssessmentTask(com.jzsoft.eos.assessment.data.AssessmentTask)
+	 */
+	public AssessmentTask getAssessmentTask();
+
+	/**
+	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getAssessmentTask <em>AssessmentTask</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>AssessmentTask</em>' attribute.
+	 * @see #getAssessmentTask()
+	 */
+	public void setAssessmentTask(AssessmentTask assessmentTask);
 
 
 }

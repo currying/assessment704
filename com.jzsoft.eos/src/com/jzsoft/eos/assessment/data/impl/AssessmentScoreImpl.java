@@ -27,8 +27,8 @@ import commonj.sdo.Type;
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentScoreImpl#getWeight <em>Weight</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentScoreImpl#getScore <em>Score</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentScoreImpl#getIsComputed <em>IsComputed</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentScoreImpl#getItem <em>Item</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentScoreImpl#getGroup <em>Group</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentScoreImpl#getAssessmentItem <em>AssessmentItem</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,8 +46,8 @@ public class AssessmentScoreImpl extends ExtendedDataObjectImpl implements Asses
 	public final static int INDEX_WEIGHT = 1;
 	public final static int INDEX_SCORE = 2;
 	public final static int INDEX_ISCOMPUTED = 3;
-	public final static int INDEX_ITEM = 4;
-	public final static int INDEX_GROUP = 5;
+	public final static int INDEX_GROUP = 4;
+	public final static int INDEX_ASSESSMENTITEM = 5;
 	public final static int SDO_PROPERTY_COUNT = 6;
 
 	public final static int EXTENDED_PROPERTY_COUNT = -1;
@@ -81,10 +81,10 @@ public class AssessmentScoreImpl extends ExtendedDataObjectImpl implements Asses
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(long)
+	 * @see #setId(java.lang.String)
 	 */
-	public long getId() {
-		return DataUtil.toLong(super.getByIndex(INDEX_ID, true));
+	public String getId() {
+		return DataUtil.toString(super.getByIndex(INDEX_ID, true));
 	}
 
 	/**
@@ -94,7 +94,7 @@ public class AssessmentScoreImpl extends ExtendedDataObjectImpl implements Asses
 	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
 	 */
-	public void setId(long id) {
+	public void setId(String id) {
 		super.setByIndex(INDEX_ID, id);
 	}
 
@@ -177,32 +177,6 @@ public class AssessmentScoreImpl extends ExtendedDataObjectImpl implements Asses
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Item</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Item</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Item</em>' attribute.
-	 * @see #setItem(com.jzsoft.eos.assessment.data.AssessmentItem)
-	 */
-	public AssessmentItem getItem() {
-		return (AssessmentItem) DataUtil.toDataObject(super.getByIndex(INDEX_ITEM, true));
-	}
-
-	/**
-	 * Sets the value of the '{@link com.primeton.eos.Test#getItem <em>Item</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Item</em>' attribute.
-	 * @see #getItem()
-	 */
-	public void setItem(AssessmentItem item) {
-		super.setByIndex(INDEX_ITEM, item);
-	}
-
-	/**
 	 * Returns the value of the '<em><b>Group</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -226,6 +200,32 @@ public class AssessmentScoreImpl extends ExtendedDataObjectImpl implements Asses
 	 */
 	public void setGroup(AssessmentGroup group) {
 		super.setByIndex(INDEX_GROUP, group);
+	}
+
+	/**
+	 * Returns the value of the '<em><b>AssessmentItem</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>AssessmentItem</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>AssessmentItem</em>' attribute.
+	 * @see #setAssessmentItem(com.jzsoft.eos.assessment.data.AssessmentItem)
+	 */
+	public AssessmentItem getAssessmentItem() {
+		return (AssessmentItem) DataUtil.toDataObject(super.getByIndex(INDEX_ASSESSMENTITEM, true));
+	}
+
+	/**
+	 * Sets the value of the '{@link com.primeton.eos.Test#getAssessmentItem <em>AssessmentItem</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>AssessmentItem</em>' attribute.
+	 * @see #getAssessmentItem()
+	 */
+	public void setAssessmentItem(AssessmentItem assessmentItem) {
+		super.setByIndex(INDEX_ASSESSMENTITEM, assessmentItem);
 	}
 
 

@@ -26,8 +26,8 @@ import commonj.sdo.helper.TypeHelper;
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentScore#getWeight <em>Weight</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentScore#getScore <em>Score</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentScore#getIsComputed <em>IsComputed</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentScore#getItem <em>Item</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentScore#getGroup <em>Group</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentScore#getAssessmentItem <em>AssessmentItem</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,9 +54,9 @@ public interface AssessmentScore extends DataObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(long)
+	 * @see #setId(java.lang.String)
 	 */
-	public long getId();
+	public String getId();
 
 	/**
 	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentScore#getId <em>Id</em>}' attribute.
@@ -65,7 +65,7 @@ public interface AssessmentScore extends DataObject {
 	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
 	 */
-	public void setId(long id);
+	public void setId(String id);
 
 	/**
 	 * Returns the value of the '<em><b>Weight</b></em>' attribute.
@@ -134,28 +134,6 @@ public interface AssessmentScore extends DataObject {
 	public void setIsComputed(boolean isComputed);
 
 	/**
-	 * Returns the value of the '<em><b>Item</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Item</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Item</em>' attribute.
-	 * @see #setItem(com.jzsoft.eos.assessment.data.AssessmentItem)
-	 */
-	public AssessmentItem getItem();
-
-	/**
-	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentScore#getItem <em>Item</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Item</em>' attribute.
-	 * @see #getItem()
-	 */
-	public void setItem(AssessmentItem item);
-
-	/**
 	 * Returns the value of the '<em><b>Group</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -176,6 +154,28 @@ public interface AssessmentScore extends DataObject {
 	 * @see #getGroup()
 	 */
 	public void setGroup(AssessmentGroup group);
+
+	/**
+	 * Returns the value of the '<em><b>AssessmentItem</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>AssessmentItem</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>AssessmentItem</em>' attribute.
+	 * @see #setAssessmentItem(com.jzsoft.eos.assessment.data.AssessmentItem)
+	 */
+	public AssessmentItem getAssessmentItem();
+
+	/**
+	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentScore#getAssessmentItem <em>AssessmentItem</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>AssessmentItem</em>' attribute.
+	 * @see #getAssessmentItem()
+	 */
+	public void setAssessmentItem(AssessmentItem assessmentItem);
 
 
 }

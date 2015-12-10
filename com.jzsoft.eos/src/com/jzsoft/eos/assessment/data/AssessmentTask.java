@@ -30,9 +30,9 @@ import java.util.List;
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentTask#getScore <em>Score</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentTask#getStatus <em>Status</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentTask#getDescription <em>Description</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentTask#getObject <em>Object</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentTask#getGroups <em>Groups</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentTask#getItems <em>Items</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentTask#getAssessmentObject <em>AssessmentObject</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentTask#getAssessmentGroups <em>AssessmentGroups</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentTask#getAssessmentItems <em>AssessmentItems</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,9 +59,9 @@ public interface AssessmentTask extends DataObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(long)
+	 * @see #setId(java.lang.String)
 	 */
-	public long getId();
+	public String getId();
 
 	/**
 	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentTask#getId <em>Id</em>}' attribute.
@@ -70,7 +70,7 @@ public interface AssessmentTask extends DataObject {
 	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
 	 */
-	public void setId(long id);
+	public void setId(String id);
 
 	/**
 	 * Returns the value of the '<em><b>Number</b></em>' attribute.
@@ -183,70 +183,70 @@ public interface AssessmentTask extends DataObject {
 	public void setDescription(String description);
 
 	/**
-	 * Returns the value of the '<em><b>Object</b></em>' attribute.
+	 * Returns the value of the '<em><b>AssessmentObject</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Object</em>' attribute isn't clear,
+	 * If the meaning of the '<em>AssessmentObject</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Object</em>' attribute.
-	 * @see #setObject(com.jzsoft.eos.assessment.data.AssessmentObject)
+	 * @return the value of the '<em>AssessmentObject</em>' attribute.
+	 * @see #setAssessmentObject(com.jzsoft.eos.assessment.data.AssessmentObject)
 	 */
-	public AssessmentObject getObject();
+	public AssessmentObject getAssessmentObject();
 
 	/**
-	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentTask#getObject <em>Object</em>}' attribute.
+	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentTask#getAssessmentObject <em>AssessmentObject</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Object</em>' attribute.
-	 * @see #getObject()
+	 * @param value the new value of the '<em>AssessmentObject</em>' attribute.
+	 * @see #getAssessmentObject()
 	 */
-	public void setObject(AssessmentObject object);
+	public void setAssessmentObject(AssessmentObject assessmentObject);
 
 	/**
-	 * Returns the value of the '<em><b>Groups</b></em>' attribute.
+	 * Returns the value of the '<em><b>AssessmentGroups</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Groups</em>' attribute isn't clear,
+	 * If the meaning of the '<em>AssessmentGroups</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Groups</em>' attribute.
-	 * @see #setGroups(com.jzsoft.eos.assessment.data.AssessmentGroup)
+	 * @return the value of the '<em>AssessmentGroups</em>' attribute.
+	 * @see #setAssessmentGroups(com.jzsoft.eos.assessment.data.AssessmentGroup)
 	 */
-	public List<AssessmentGroup> getGroups();
+	public List<AssessmentGroup> getAssessmentGroups();
 
 	/**
-	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentTask#getGroups <em>Groups</em>}' attribute.
+	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentTask#getAssessmentGroups <em>AssessmentGroups</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Groups</em>' attribute.
-	 * @see #getGroups()
+	 * @param value the new value of the '<em>AssessmentGroups</em>' attribute.
+	 * @see #getAssessmentGroups()
 	 */
-	public void setGroups(List<AssessmentGroup> groups);
+	public void setAssessmentGroups(List<AssessmentGroup> assessmentGroups);
 
 	/**
-	 * Returns the value of the '<em><b>Items</b></em>' attribute.
+	 * Returns the value of the '<em><b>AssessmentItems</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Items</em>' attribute isn't clear,
+	 * If the meaning of the '<em>AssessmentItems</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Items</em>' attribute.
-	 * @see #setItems(com.jzsoft.eos.assessment.data.AssessmentItem)
+	 * @return the value of the '<em>AssessmentItems</em>' attribute.
+	 * @see #setAssessmentItems(com.jzsoft.eos.assessment.data.AssessmentItem)
 	 */
-	public List<AssessmentItem> getItems();
+	public List<AssessmentItem> getAssessmentItems();
 
 	/**
-	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentTask#getItems <em>Items</em>}' attribute.
+	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentTask#getAssessmentItems <em>AssessmentItems</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Items</em>' attribute.
-	 * @see #getItems()
+	 * @param value the new value of the '<em>AssessmentItems</em>' attribute.
+	 * @see #getAssessmentItems()
 	 */
-	public void setItems(List<AssessmentItem> items);
+	public void setAssessmentItems(List<AssessmentItem> assessmentItems);
 
 
 }

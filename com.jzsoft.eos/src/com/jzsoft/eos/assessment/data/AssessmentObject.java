@@ -28,7 +28,7 @@ import java.util.List;
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentObject#getNumber <em>Number</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentObject#getName <em>Name</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentObject#getDescription <em>Description</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentObject#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentObject#getAssessmentTasks <em>AssessmentTasks</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,9 +55,9 @@ public interface AssessmentObject extends DataObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(long)
+	 * @see #setId(java.lang.String)
 	 */
-	public long getId();
+	public String getId();
 
 	/**
 	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentObject#getId <em>Id</em>}' attribute.
@@ -66,7 +66,7 @@ public interface AssessmentObject extends DataObject {
 	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
 	 */
-	public void setId(long id);
+	public void setId(String id);
 
 	/**
 	 * Returns the value of the '<em><b>Number</b></em>' attribute.
@@ -135,26 +135,26 @@ public interface AssessmentObject extends DataObject {
 	public void setDescription(String description);
 
 	/**
-	 * Returns the value of the '<em><b>Tasks</b></em>' attribute.
+	 * Returns the value of the '<em><b>AssessmentTasks</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Tasks</em>' attribute isn't clear,
+	 * If the meaning of the '<em>AssessmentTasks</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tasks</em>' attribute.
-	 * @see #setTasks(com.jzsoft.eos.assessment.data.AssessmentTask)
+	 * @return the value of the '<em>AssessmentTasks</em>' attribute.
+	 * @see #setAssessmentTasks(com.jzsoft.eos.assessment.data.AssessmentTask)
 	 */
-	public List<AssessmentTask> getTasks();
+	public List<AssessmentTask> getAssessmentTasks();
 
 	/**
-	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentObject#getTasks <em>Tasks</em>}' attribute.
+	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentObject#getAssessmentTasks <em>AssessmentTasks</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Tasks</em>' attribute.
-	 * @see #getTasks()
+	 * @param value the new value of the '<em>AssessmentTasks</em>' attribute.
+	 * @see #getAssessmentTasks()
 	 */
-	public void setTasks(List<AssessmentTask> tasks);
+	public void setAssessmentTasks(List<AssessmentTask> assessmentTasks);
 
 
 }

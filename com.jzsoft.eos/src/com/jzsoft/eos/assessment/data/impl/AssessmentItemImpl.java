@@ -32,10 +32,10 @@ import java.util.List;
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentItemImpl#getWeight <em>Weight</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentItemImpl#getSummary <em>Summary</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentItemImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentItemImpl#getTask <em>Task</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentItemImpl#getParents <em>Parents</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentItemImpl#getParent <em>Parent</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentItemImpl#getChildren <em>Children</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentItemImpl#getScores <em>Scores</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentItemImpl#getAssessmentScores <em>AssessmentScores</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentItemImpl#getAssessmentTask <em>AssessmentTask</em>}</li>
  * </ul>
  * </p>
  *
@@ -56,10 +56,10 @@ public class AssessmentItemImpl extends ExtendedDataObjectImpl implements Assess
 	public final static int INDEX_WEIGHT = 4;
 	public final static int INDEX_SUMMARY = 5;
 	public final static int INDEX_DESCRIPTION = 6;
-	public final static int INDEX_TASK = 7;
+	public final static int INDEX_PARENTS = 7;
 	public final static int INDEX_PARENT = 8;
-	public final static int INDEX_CHILDREN = 9;
-	public final static int INDEX_SCORES = 10;
+	public final static int INDEX_ASSESSMENTSCORES = 9;
+	public final static int INDEX_ASSESSMENTTASK = 10;
 	public final static int SDO_PROPERTY_COUNT = 11;
 
 	public final static int EXTENDED_PROPERTY_COUNT = -1;
@@ -93,10 +93,10 @@ public class AssessmentItemImpl extends ExtendedDataObjectImpl implements Assess
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(long)
+	 * @see #setId(java.lang.String)
 	 */
-	public long getId() {
-		return DataUtil.toLong(super.getByIndex(INDEX_ID, true));
+	public String getId() {
+		return DataUtil.toString(super.getByIndex(INDEX_ID, true));
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class AssessmentItemImpl extends ExtendedDataObjectImpl implements Assess
 	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
 	 */
-	public void setId(long id) {
+	public void setId(String id) {
 		super.setByIndex(INDEX_ID, id);
 	}
 
@@ -267,29 +267,29 @@ public class AssessmentItemImpl extends ExtendedDataObjectImpl implements Assess
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Task</b></em>' attribute.
+	 * Returns the value of the '<em><b>Parents</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Task</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Parents</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Task</em>' attribute.
-	 * @see #setTask(com.jzsoft.eos.assessment.data.AssessmentTask)
+	 * @return the value of the '<em>Parents</em>' attribute.
+	 * @see #setParents(com.jzsoft.eos.assessment.data.AssessmentItem)
 	 */
-	public AssessmentTask getTask() {
-		return (AssessmentTask) DataUtil.toDataObject(super.getByIndex(INDEX_TASK, true));
+	public List<AssessmentItem> getParents() {
+		return (List<AssessmentItem>) getList(INDEX_PARENTS, true);
 	}
 
 	/**
-	 * Sets the value of the '{@link com.primeton.eos.Test#getTask <em>Task</em>}' attribute.
+	 * Sets the value of the '{@link com.primeton.eos.Test#getParents <em>Parents</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Task</em>' attribute.
-	 * @see #getTask()
+	 * @param value the new value of the '<em>Parents</em>' attribute.
+	 * @see #getParents()
 	 */
-	public void setTask(AssessmentTask task) {
-		super.setByIndex(INDEX_TASK, task);
+	public void setParents(List<AssessmentItem> parents) {
+		super.setByIndex(INDEX_PARENTS, parents);
 	}
 
 	/**
@@ -319,55 +319,55 @@ public class AssessmentItemImpl extends ExtendedDataObjectImpl implements Assess
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Children</b></em>' attribute.
+	 * Returns the value of the '<em><b>AssessmentScores</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Children</em>' attribute isn't clear,
+	 * If the meaning of the '<em>AssessmentScores</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Children</em>' attribute.
-	 * @see #setChildren(com.jzsoft.eos.assessment.data.AssessmentItem)
+	 * @return the value of the '<em>AssessmentScores</em>' attribute.
+	 * @see #setAssessmentScores(com.jzsoft.eos.assessment.data.AssessmentScore)
 	 */
-	public List<AssessmentItem> getChildren() {
-		return (List<AssessmentItem>) getList(INDEX_CHILDREN, true);
+	public List<AssessmentScore> getAssessmentScores() {
+		return (List<AssessmentScore>) getList(INDEX_ASSESSMENTSCORES, true);
 	}
 
 	/**
-	 * Sets the value of the '{@link com.primeton.eos.Test#getChildren <em>Children</em>}' attribute.
+	 * Sets the value of the '{@link com.primeton.eos.Test#getAssessmentScores <em>AssessmentScores</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Children</em>' attribute.
-	 * @see #getChildren()
+	 * @param value the new value of the '<em>AssessmentScores</em>' attribute.
+	 * @see #getAssessmentScores()
 	 */
-	public void setChildren(List<AssessmentItem> children) {
-		super.setByIndex(INDEX_CHILDREN, children);
+	public void setAssessmentScores(List<AssessmentScore> assessmentScores) {
+		super.setByIndex(INDEX_ASSESSMENTSCORES, assessmentScores);
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Scores</b></em>' attribute.
+	 * Returns the value of the '<em><b>AssessmentTask</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Scores</em>' attribute isn't clear,
+	 * If the meaning of the '<em>AssessmentTask</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Scores</em>' attribute.
-	 * @see #setScores(com.jzsoft.eos.assessment.data.AssessmentScore)
+	 * @return the value of the '<em>AssessmentTask</em>' attribute.
+	 * @see #setAssessmentTask(com.jzsoft.eos.assessment.data.AssessmentTask)
 	 */
-	public List<AssessmentScore> getScores() {
-		return (List<AssessmentScore>) getList(INDEX_SCORES, true);
+	public AssessmentTask getAssessmentTask() {
+		return (AssessmentTask) DataUtil.toDataObject(super.getByIndex(INDEX_ASSESSMENTTASK, true));
 	}
 
 	/**
-	 * Sets the value of the '{@link com.primeton.eos.Test#getScores <em>Scores</em>}' attribute.
+	 * Sets the value of the '{@link com.primeton.eos.Test#getAssessmentTask <em>AssessmentTask</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Scores</em>' attribute.
-	 * @see #getScores()
+	 * @param value the new value of the '<em>AssessmentTask</em>' attribute.
+	 * @see #getAssessmentTask()
 	 */
-	public void setScores(List<AssessmentScore> scores) {
-		super.setByIndex(INDEX_SCORES, scores);
+	public void setAssessmentTask(AssessmentTask assessmentTask) {
+		super.setByIndex(INDEX_ASSESSMENTTASK, assessmentTask);
 	}
 
 
