@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<process:tBusinessLogic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://com.primeton.emf.core" xmlns:process="http://primeton.com/emf/core/process" name="deleteAssessmentObjectBiz.bizx" detailDescription="" demonstration="" urls="" gridVisibility="false" rulerVisibility="true" snapToGeometry="true" productVersion="7.0.0.0">
+<process:tBusinessLogic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://com.primeton.emf.core" xmlns:process="http://primeton.com/emf/core/process" name="deleteAssessmentTasksBiz" detailDescription="" demonstration="" urls="" gridVisibility="false" rulerVisibility="true" snapToGeometry="true" productVersion="7.0.0.0">
   <nodes xsi:type="process:tStart" id="start0" name="开始" displayName="开始" type="start">
     <sourceConnections xsi:type="process:tLink" id="link0" name="link0" displayName="连接线" isDefault="true" type="transition">
       <sourceNode>start0</sourceNode>
@@ -26,7 +26,7 @@
     <figSize height="17" width="25"/>
     <node>end0</node>
   </nodes>
-  <nodes xsi:type="process:tInvoke" description="" id="invokeSpring0" name="spring调用" displayName="deleteAssessmentObject" type="invoke" index="0" invokeType="invoke_spring" varArgs="false">
+  <nodes xsi:type="process:tInvoke" description="" id="invokeSpring0" name="spring调用" displayName="deleteAssessmentTask" type="invoke" index="0" invokeType="invoke_spring" varArgs="false">
     <sourceConnections xsi:type="process:tLink" id="link1" name="link1" displayName="连接线" isDefault="true" type="transition">
       <sourceNode>invokeSpring0</sourceNode>
       <targetNode>end0</targetNode>
@@ -36,11 +36,11 @@
     <size height="28" width="28"/>
     <nodeLabel>invokeSpring0label</nodeLabel>
     <process:spring methodType="beanID" synchronization="true" transactionType="join">
-      <process:partner type="literal">com.jzsoft.eos.assessment.impl.AssessmentObjectService.deleteAssessmentObject</process:partner>
-      <process:instance instanceName="AssessmentObjectServiceBean"/>
+      <process:partner type="literal">com.jzsoft.eos.assessment.impl.AssessmentTaskService.deleteAssessmentTask</process:partner>
+      <process:instance instanceName="AssessmentTaskServiceBean"/>
     </process:spring>
     <process:inputVariables>
-      <process:inputVariable id="0" name="assessmentObjects" type="query" value="com.jzsoft.eos.assessment.data.AssessmentObject[]" valueType="Java" pattern="reference">assessmentObjects</process:inputVariable>
+      <process:inputVariable id="0" name="assessmentTasks" type="query" value="com.jzsoft.eos.assessment.data.AssessmentTask[]" valueType="Java" pattern="reference">assessmentTasks</process:inputVariable>
     </process:inputVariables>
     <process:outputVariables/>
   </nodes>
@@ -54,7 +54,7 @@
   <process:info author="currying" createTime="2015-12-11 11:16:17" date="2015-12-11Z" description="" name="deleteAssessmentObjectBiz" version="7.0.0.0"/>
   <process:variables/>
   <process:inputs varArgs="false">
-    <process:input anyType="com.jzsoft.eos.assessment.data.AssessmentObject" description="" isArray="true" name="assessmentObjects"/>
+    <process:input anyType="com.jzsoft.eos.assessment.data.AssessmentTask" description="" isArray="true" name="assessmentTasks"/>
   </process:inputs>
   <process:outputs/>
   <process:extAttribute1>public</process:extAttribute1>

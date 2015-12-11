@@ -8,4 +8,6 @@ public interface IAssessmentTaskService {
 	public abstract AssessmentTask[] getTasksByObjectId(long objectId);
 
 	public abstract void addAssessmentTask(AssessmentTask assessmentTask);
+
+	public abstract void deleteAssessmentTask(AssessmentTask[] assessmentTasks);
 }

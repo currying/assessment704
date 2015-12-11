@@ -57,4 +57,10 @@ public class AssessmentTaskService extends DASDaoSupport implements
 	public void addAssessmentTask(AssessmentTask assessmentTask) {
 		getDASTemplate().insertEntity(assessmentTask);
 	}
+
+	public void deleteAssessmentTask(AssessmentTask[] assessmentTasks) {
+		for (AssessmentTask task : assessmentTasks) {
+			getDASTemplate().deleteEntityCascade(task);
+		}
+	}
 }
