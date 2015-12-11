@@ -2,9 +2,9 @@
 <%@page pageEncoding="UTF-8"%>
 <%@include file="/nui/common.jsp"%>
 <link id="css_skin" rel="stylesheet" type="text/css"
-	href="<%=contextPath%>/coframe/tools/skins/skin1/style.css" />
+	href="<%=contextPath%>/css/style2/style-custom.css" />
 <html xmlns="http://www.w3.org/1999/xhtml"> <head> <title>系统界面
-OutlookTree</title> <link href="../demo.css" rel="stylesheet" type="text/css" />
+OutlookTree</title> 
 <style type="text/css">
     body{
         margin:0;padding:0;border:0;width:100%;height:100%;overflow:hidden;
@@ -27,7 +27,7 @@ OutlookTree</title> <link href="../demo.css" rel="stylesheet" type="text/css" />
 	class="nui-button" iconCls="icon-add" plain="true"
 	onclick="expandAll()" /> <a class="nui-button" iconCls="icon-edit"
 	plain="true"></a> <!-- 修改  --> <a class="nui-button"
-	iconCls="icon-remove" plain="true"></a> <!-- 删除  --> <a
+	iconCls="icon-remove" plain="true" onclick="remove()"></a> <!-- 删除  --> <a
 	class="nui-button" iconCls="icon-search" plain="true"></a> <!-- 查找  -->
 </div> <!-- 考核对象与考核任务  --> <div class="nui-fit"> <div> <label>名称：</label>
 <input id="key" class="nui-textbox" style="width:100px;"
@@ -62,7 +62,53 @@ OutlookTree</title> <link href="../demo.css" rel="stylesheet" type="text/css" />
 				});
 			}
 		}
-
+		//删除
+		function remove() {
+			var rows = itemTree.getSelecteds();
+			console.log(rows);
+			if (rows.length > 0) {
+				nui
+						.confirm(
+								"确定删除选中记录？",
+								"系统提示",
+								function(action) {
+									if (action == "ok") {
+										var json = nui.encode({
+											assessmentObjects : rows
+										});
+										itemTree.loading("正在删除中,请稍等...");
+										$
+												.ajax({
+													url : "com.jzsoft.eos.assessment.AssessmentObjectBiz.deleteAssessmentObjectBiz.biz.ext",
+													type : 'POST',
+													data : json,
+													cache : false,
+													contentType : 'text/json',
+													success : function(text) {
+														var returnJson = nui
+																.decode(text);
+														if (returnJson.exception == null) {
+															itemTree.reload();
+															nui
+																	.alert(
+																			"删除成功",
+																			"系统提示",
+																			function(
+																					action) {
+																			});
+														} else {
+															itemTree.unmask();
+															nui.alert("删除失败",
+																	"系统提示");
+														}
+													}
+												});
+									}
+								});
+			} else {
+				nui.alert("请选中一条记录！");
+			}
+		}
 		function onKeyEnter(e) {
 			search();
 		}

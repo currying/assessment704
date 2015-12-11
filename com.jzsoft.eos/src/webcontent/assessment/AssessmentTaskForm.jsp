@@ -15,60 +15,60 @@
 <body>
 	<!-- 标识页面是查看(query)、修改(edit)、新增(add) -->
 	<input name="pageType" class="nui-hidden" />
-	<div id="AssessmentTaskDataform" style="padding-top: 5px;">
+	<div id="AssessmentTaskDataform"
+		style="padding-left: 11px; padding-bottom: 5px;">
 		<!-- hidden域 -->
 		<input class="nui-hidden" name="assessmentTask.id" />
-		<table style="width: 100%; height: 85%; table-layout: fixed;"
-			class="nui-form-table">
+		<table style="table-layout: fixed;height: 80%;">
 			<tr>
-				<td class="form_label">排序:</td>
-				<td colspan="1"><input class="nui-textbox"
+				<td style="width: 70px;">年度:</td>
+				<td style="width: 150px;"><input class="nui-textbox"
 					name="assessmentTask.number" /></td>
-				<td class="form_label">考核任务:</td>
-				<td colspan="1"><input class="nui-textbox"
+				<td style="width: 70px;">考核任务:</td>
+				<td style="width: 150px;"><input class="nui-textbox"
 					name="assessmentTask.title" /></td>
-				</tr><tr>	
-				<td class="form_label">考核对象:</td>
-				<td colspan="1"><input id="btnEdit1" class="nui-buttonedit"
-					onbuttonclick="onButtonEdit"
+			</tr>
+			<tr>
+				<td style="width: 70px;">考核对象:</td>
+				<td style="width: 150px;"><input id="btnEdit1"
+					class="nui-buttonedit" onbuttonclick="onButtonEdit"
 					name="assessmentTask.object.id" /></td>
 			</tr>
 		</table>
+
 		<div class="nui-toolbar" style="padding: 0px;" borderStyle="border:0;">
 			<table width="100%">
 				<tr>
-					<td style="text-align: center;" colspan="4"><a
-						class="nui-button" iconCls="icon-save" onclick="onOk()"> 保存 </a> <span
-						style="display: inline-block; width: 25px;"> </span> <a
-						class="nui-button" iconCls="icon-cancel" onclick="onCancel()">
-							取消 </a></td>
+					<td style="text-align: center;" colspan="4"><a class="nui-button" onclick="onOk"
+				style="width: 60px; margin-right: 20px;">确定</a> <a
+				class="nui-button" onclick="onCancel" style="width: 60px;">取消</a></td>
 				</tr>
 			</table>
 		</div>
 	</div>
 	<script type="text/javascript">
       nui.parse();
-function onButtonEdit(e) {
+	function onButtonEdit(e) {
             var btnEdit = this;
             nui.open({
-                url:"<%=contextPath%>/eos/assessment/selectAssessmentObject.jsp",
-				title : "选择列表",
-				width : 650,
-				height : 380,
-				ondestroy : function(action) {
-					//if (action == "close") return false;
-					if (action == "ok") {
-						var iframe = this.getIFrameEl();
-						var data = iframe.contentWindow.GetData();
-						data = nui.clone(data); //必须
-						if (data) {
-							btnEdit.setValue(data.id);
-							btnEdit.setText(data.name);
-						}
-					}
+                url:"selectAssessmentObject.jsp",
+						title : "选择列表",
+						width : 650,
+						height : 380,
+						ondestroy : function(action) {
+							//if (action == "close") return false;
+							if (action == "ok") {
+								var iframe = this.getIFrameEl();
+								var data = iframe.contentWindow.GetData();
+								data = nui.clone(data); //必须
+								if (data) {
+									btnEdit.setValue(data.id);
+									btnEdit.setText(data.name);
+								}
+							}
 
-				}
-			});
+						}
+					});
 		}
 		function saveData() {
 

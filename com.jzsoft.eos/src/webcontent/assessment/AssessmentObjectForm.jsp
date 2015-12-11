@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" session="false"%>
+<%@include file="/nui/common.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <%--
@@ -10,9 +11,6 @@
 <head>
 <title>考核对象录入</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<script src="<%=request.getContextPath()%>/common/nui/nui.js"
-	type="text/javascript">
-	
 </script>
 </head>
 <body>
@@ -21,14 +19,13 @@
 	<div id="AssessmentObjectDataform" style="padding-top: 5px;">
 		<!-- hidden域 -->
 		<input class="nui-hidden" name="assessmentObject.id" />
-		<table style="width: 100%; height: 100%; table-layout: fixed;"
-			class="nui-form-table">
+		<table style="table-layout: fixed;height: 80%;">
 			<tr>
-				<td class="form_label">排序:</td>
-				<td colspan="2"><input class="nui-textbox"
+				<td style="width: 70px;">序号:</td>
+				<td style="width: 150px;"><input class="nui-textbox"
 					name="assessmentObject.number" /></td>
-				<td class="form_label">考核对象:</td>
-				<td colspan="2"><input class="nui-textbox"
+				<td style="width: 70px;">考核对象:</td>
+				<td style="width: 150px;"><input class="nui-textbox"
 					name="assessmentObject.name" /></td>
 			</tr>
 		</table>

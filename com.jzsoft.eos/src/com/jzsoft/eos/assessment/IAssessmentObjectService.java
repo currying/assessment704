@@ -8,4 +8,7 @@ public interface IAssessmentObjectService {
 	public abstract AssessmentObject[] loadObjectTaskTreeData();
 
 	public abstract void addAssessmentObject(AssessmentObject assessmentObject);
+
+	public abstract void deleteAssessmentObject(
+			AssessmentObject[] assessmentObjects);
 }
