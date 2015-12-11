@@ -23,23 +23,20 @@ OutlookTree</title> <link href="../demo.css" rel="stylesheet" type="text/css" />
 	style="padding:2px;border-top:0;border-left:0;border-right:0;"> <a
 	class="nui-button" iconCls="icon-add" plain="true"
 	onclick="addObject()"></a> <!-- 新建 --> <a class="nui-button"
-	iconCls="icon-add" plain="true" onclick="addTask()"></a>
-	<a class="nui-button" iconCls="icon-add" plain="true" onclick="expandAll()"/>
-	 <a
-	class="nui-button" iconCls="icon-edit" plain="true"></a> <!-- 修改  --> <a
-	class="nui-button" iconCls="icon-remove" plain="true"></a> <!-- 删除  -->
-<a class="nui-button" iconCls="icon-search" plain="true"></a> <!-- 查找  -->
-</div> <!-- 考核对象与考核任务  --> <div class="nui-fit"> 
-    <div>
-          <label >名称：</label>
-          <input id="key" class="nui-textbox" style="width:100px;" onenter="onKeyEnter"/>
-          <a class="nui-button" style="width:60px;" onclick="search()">查询</a>    
-    </div>
-<ul id="taskTree"
-	class="nui-tree" style="width:100%;" showTreeIcon="true"
-	textField="name" idField="id" parentField="pid" resultAsTree="true"
-	dataField="objects" onPreLoad="onTaskTreePreLoad"
-	onDrawNode="onTaskTreeDrawNode" onNodeSelect="onTaskTreeNodeSelect"
+	iconCls="icon-add" plain="true" onclick="addTask()"></a> <a
+	class="nui-button" iconCls="icon-add" plain="true"
+	onclick="expandAll()" /> <a class="nui-button" iconCls="icon-edit"
+	plain="true"></a> <!-- 修改  --> <a class="nui-button"
+	iconCls="icon-remove" plain="true"></a> <!-- 删除  --> <a
+	class="nui-button" iconCls="icon-search" plain="true"></a> <!-- 查找  -->
+</div> <!-- 考核对象与考核任务  --> <div class="nui-fit"> <div> <label>名称：</label>
+<input id="key" class="nui-textbox" style="width:100px;"
+	onenter="onKeyEnter" /> <a class="nui-button" style="width:60px;"
+	onclick="search()">查询</a> </div> <ul id="taskTree" class="nui-tree"
+	style="width:100%;" showTreeIcon="true" textField="name" idField="id"
+	parentField="pid" resultAsTree="true" dataField="objects"
+	onPreLoad="onTaskTreePreLoad" onDrawNode="onTaskTreeDrawNode"
+	onNodeSelect="onTaskTreeNodeSelect"
 	url="com.jzsoft.eos.assessment.AssessmentTaskTree.loadData.biz.ext">
 </ul> </div> <!-- 考核对象与考核任务查找工具条  --> <div class="nui-toolbar"
 	style="padding:2px;border-top:0;border-left:0;border-right:0;"> <span
@@ -53,22 +50,22 @@ OutlookTree</title> <link href="../demo.css" rel="stylesheet" type="text/css" />
 		nui.parse();
 		var itemTree = nui.get("taskTree");
 		function search() {
-            var key = nui.get("key").getValue();
-            if (key == "") {
-                itemTree.clearFilter();
-            } else {
-                itemTree.filter(function (node) {
-                    var text = node.name ? node.name : "";
-                    if (text.indexOf(key) != -1) {
-                        return true;
-                    }
-                });
-            }
-        }
-        
-        function onKeyEnter(e) {
-            search();
-        }
+			var key = nui.get("key").getValue();
+			if (key == "") {
+				itemTree.clearFilter();
+			} else {
+				itemTree.filter(function(node) {
+					var text = node.name ? node.text : "";
+					if (text.indexOf(key) != -1) {
+						return true;
+					}
+				});
+			}
+		}
+
+		function onKeyEnter(e) {
+			search();
+		}
 		//新增Object
 		function expandAll() {
 			var tree = nui.get("taskTree");
