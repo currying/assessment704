@@ -11,7 +11,8 @@
 <head>
 <title>考核对象录入</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-</script>
+<link rel="stylesheet" type="text/css"
+	href="<%=contextPath%>/css/grid.css" />
 </head>
 <body>
 	<!-- 标识页面是查看(query)、修改(edit)、新增(add) -->
@@ -19,17 +20,44 @@
 	<div id="AssessmentObjectDataform" style="padding-top: 5px;">
 		<!-- hidden域 -->
 		<input class="nui-hidden" name="assessmentObject.id" />
-		<table style="table-layout: fixed;height: 80%;">
-			<tr>
-				<td style="width: 70px;">序号:</td>
-				<td style="width: 150px;"><input class="nui-textbox"
-					name="assessmentObject.number" /></td>
-				<td style="width: 70px;">考核对象:</td>
-				<td style="width: 150px;"><input class="nui-textbox"
-					name="assessmentObject.name" /></td>
-			</tr>
-		</table>
-		<div class="nui-toolbar" style="padding: 0px;" borderStyle="border:0;">
+
+
+		<div class="pui-grid pui-grid-responsive"
+			style="border: ridge; padding: 5px; height: 80%;">
+			<div class="pui-grid-row">
+				<div class="pui-grid-col-2">
+					<label for="name">排序：</label>
+				</div>
+				<div class="pui-grid-col-8">
+					<input class="nui-textbox" style="width: 200px;"
+						name="assessmentObject.number">
+				</div>
+			</div>
+			<br />
+			<div class="pui-grid-row">
+				<div class="pui-grid-col-2">
+					<label>考核对象：</label>
+				</div>
+				<div class="pui-grid-col-8">
+					<input class="nui-textbox" style="width: 200px;"
+						name="assessmentObject.name">
+				</div>
+			</div>
+			<br />
+			<div class="pui-grid-row">
+				<div class="pui-grid-col-2">
+					<label>描述：</label>
+				</div>
+				<div class="pui-grid-col-8">
+					<input class="nui-textarea" style="width: 100%; height: 100px;"
+						name="assessmentObject.description">
+				</div>
+			</div>
+		</div>
+
+		<div class="nui-toolbar"
+			style="padding: 0px; position: absolute; bottom: 0px; left: 0px; right: 0px;"
+			borderStyle="border:0;">
 			<table width="100%">
 				<tr>
 					<td style="text-align: center;" colspan="4"><a
@@ -43,7 +71,6 @@
 	</div>
 	<script type="text/javascript">
 		nui.parse();
-
 		function saveData() {
 
 			var form = new nui.Form("#AssessmentObjectDataform");
