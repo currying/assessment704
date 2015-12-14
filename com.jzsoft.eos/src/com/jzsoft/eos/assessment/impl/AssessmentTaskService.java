@@ -50,8 +50,6 @@ public class AssessmentTaskService extends DASDaoSupport implements
 		AssessmentTask[] results = getDASTemplate()
 				.queryEntitiesByCriteriaEntity(AssessmentTask.class,
 						dasCriteria);
-
-		System.out.println(objectId);
 		return results;
 	}
 

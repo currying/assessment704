@@ -51,11 +51,6 @@ public class AssessmentObjectService extends DASDaoSupport implements
 	}
 
 	public AssessmentObject[] loadObjectTaskTreeData() {
-		// try {
-		// System.out.println(getDASTemplate().getNextSequence("bbb"));
-		// } catch (Exception e) {
-		// e.printStackTrace();
-		// }
 		IDASCriteria dasCriteria = getDASTemplate().createCriteria(
 				AssessmentObject.QNAME).asc("number");
 		AssessmentObject[] results = getDASTemplate()
@@ -69,7 +64,6 @@ public class AssessmentObjectService extends DASDaoSupport implements
 	}
 
 	public void addAssessmentObject(AssessmentObject assessmentObject) {
-		getDASTemplate().getPrimaryKey(assessmentObject);
 		try {
 			assessmentObject.setId(getDASTemplate().getNextSequence(
 					SequenceName.OBJECT_ID));

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <process:tBusinessLogic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://com.primeton.emf.core" xmlns:process="http://primeton.com/emf/core/process" name="loadData" detailDescription="" demonstration="" urls="" gridVisibility="false" rulerVisibility="true" snapToGeometry="true" productVersion="7.0.0.0">
   <nodes xsi:type="process:tStart" id="start0" name="开始" displayName="开始" type="start">
-    <sourceConnections xsi:type="process:tLink" description="" id="link2" name="link2" displayName="连接线" isDefault="true" type="transition">
+    <sourceConnections xsi:type="process:tLink" description="" id="link0" name="link0" displayName="连接线" isDefault="true" type="transition">
       <sourceNode>start0</sourceNode>
       <targetNode>invokeSpring0</targetNode>
       <process:transitionCondition>
@@ -11,7 +11,7 @@
         </process:simpleCondition>
       </process:transitionCondition>
     </sourceConnections>
-    <sourceConnections xsi:type="process:tLink" description="" id="link3" name="isRoot == false" displayName="连接线" type="transition">
+    <sourceConnections xsi:type="process:tLink" description="" id="link1" name="isRoot == false" displayName="连接线" type="transition">
       <sourceNode>start0</sourceNode>
       <targetNode>invokeSpring1</targetNode>
       <process:transitionCondition>
@@ -21,90 +21,90 @@
         </process:simpleCondition>
       </process:transitionCondition>
     </sourceConnections>
-    <location x="101" y="150"/>
+    <location x="100" y="150"/>
     <size height="28" width="28"/>
     <nodeLabel>start0label</nodeLabel>
   </nodes>
   <nodes xsi:type="process:tEnd" id="end0" name="结束" displayName="结束" type="end">
-    <targetConnections>link1</targetConnections>
-    <targetConnections>link4</targetConnections>
+    <targetConnections>link2</targetConnections>
+    <targetConnections>link3</targetConnections>
     <location x="400" y="150"/>
     <size height="28" width="28"/>
     <nodeLabel>end0label</nodeLabel>
     <process:returns>
-      <process:return id="0" language="com.jzsoft.eos.assessment.data.AssessmentItem[]" name="items" type="query" valueType="Java">items</process:return>
+      <process:return id="0" language="com.jzsoft.eos.assessment.data.AssessmentGroup[]" name="groups" type="query" valueType="Java">groups</process:return>
     </process:returns>
   </nodes>
   <nodes xsi:type="model:NodeElementLabel" id="start0label" name="label" displayName="label" nodeType="label">
-    <location x="103" y="186"/>
-    <figSize height="17" width="25"/>
+    <location x="102" y="186"/>
+    <figSize height="12" width="25"/>
     <node>start0</node>
   </nodes>
   <nodes xsi:type="model:NodeElementLabel" id="end0label" name="label" displayName="label" nodeType="label">
     <location x="402" y="186"/>
-    <figSize height="17" width="25"/>
+    <figSize height="12" width="25"/>
     <node>end0</node>
   </nodes>
-  <nodes xsi:type="process:tInvoke" description="" id="invokeSpring0" name="getRootItemsByTaskId" displayName="getRootItemsByTaskId" type="invoke" index="0" invokeType="invoke_spring" varArgs="false">
-    <sourceConnections xsi:type="process:tLink" id="link1" name="link1" displayName="连接线" isDefault="true" type="transition">
+  <nodes xsi:type="process:tInvoke" description="" id="invokeSpring0" name="getGroupsByTaskId" displayName="getGroupsByTaskId" type="invoke" index="0" invokeType="invoke_spring" varArgs="false">
+    <sourceConnections xsi:type="process:tLink" id="link3" name="link3" displayName="连接线" isDefault="true" type="transition">
       <sourceNode>invokeSpring0</sourceNode>
       <targetNode>end0</targetNode>
     </sourceConnections>
-    <targetConnections>link2</targetConnections>
-    <location x="253" y="150"/>
+    <targetConnections>link0</targetConnections>
+    <location x="255" y="150"/>
     <size height="28" width="28"/>
     <nodeLabel>invokeSpring0label</nodeLabel>
     <process:spring methodType="beanID" synchronization="true" transactionType="join">
-      <process:partner type="literal">com.jzsoft.eos.assessment.impl.AssessmentItemService.getRootItemsByTaskId</process:partner>
-      <process:instance instanceName="AssessmentItemServiceBean"/>
+      <process:partner type="literal">com.jzsoft.eos.assessment.impl.AssessmentGroupService.getGroupsByTaskId</process:partner>
+      <process:instance instanceName="AssessmentGroupServiceBean"/>
     </process:spring>
     <process:inputVariables>
       <process:inputVariable id="0" name="taskId" type="query" value="java.lang.Long" valueType="Java" pattern="reference">id</process:inputVariable>
     </process:inputVariables>
     <process:outputVariables>
-      <process:outputVariable id="0" name="out0" type="query" value="com.jzsoft.eos.assessment.data.AssessmentItem[]" valueType="Java">items</process:outputVariable>
+      <process:outputVariable id="0" name="out0" type="query" value="com.jzsoft.eos.assessment.data.AssessmentGroup[]" valueType="Java">groups</process:outputVariable>
     </process:outputVariables>
   </nodes>
   <nodes xsi:type="model:NodeElementLabel" id="invokeSpring0label" name="label" nodeType="label">
-    <location x="201" y="186"/>
-    <figSize height="17" width="133"/>
+    <location x="218" y="186"/>
+    <figSize height="12" width="103"/>
     <node>invokeSpring0</node>
   </nodes>
-  <nodes xsi:type="process:tInvoke" description="" id="invokeSpring1" name="getItemsByParentId" displayName="getItemsByParentId" type="invoke" index="0" invokeType="invoke_spring" varArgs="false">
-    <sourceConnections xsi:type="process:tLink" id="link4" name="link4" displayName="连接线" isDefault="true" type="transition">
+  <nodes xsi:type="process:tInvoke" description="" id="invokeSpring1" name="getGroupsByParentId" displayName="getGroupsByParentId" type="invoke" index="0" invokeType="invoke_spring" varArgs="false">
+    <sourceConnections xsi:type="process:tLink" id="link2" name="link2" displayName="连接线" isDefault="true" type="transition">
       <sourceNode>invokeSpring1</sourceNode>
       <targetNode>end0</targetNode>
     </sourceConnections>
-    <targetConnections>link3</targetConnections>
-    <location x="253" y="245"/>
+    <targetConnections>link1</targetConnections>
+    <location x="256" y="253"/>
     <size height="28" width="28"/>
     <nodeLabel>invokeSpring1label</nodeLabel>
     <process:spring methodType="beanID" synchronization="true" transactionType="join">
-      <process:partner type="literal">com.jzsoft.eos.assessment.impl.AssessmentItemService.getItemsByParentId</process:partner>
-      <process:instance instanceName="AssessmentItemServiceBean"/>
+      <process:partner type="literal">com.jzsoft.eos.assessment.impl.AssessmentGroupService.getGroupsByParentId</process:partner>
+      <process:instance instanceName="AssessmentGroupServiceBean"/>
     </process:spring>
     <process:inputVariables>
       <process:inputVariable id="0" name="parentId" type="query" value="java.lang.Long" valueType="Java" pattern="reference">id</process:inputVariable>
     </process:inputVariables>
     <process:outputVariables>
-      <process:outputVariable id="0" name="out0" type="query" value="com.jzsoft.eos.assessment.data.AssessmentItem[]" valueType="Java">items</process:outputVariable>
+      <process:outputVariable id="0" name="out0" type="query" value="com.jzsoft.eos.assessment.data.AssessmentGroup[]" valueType="Java">groups</process:outputVariable>
     </process:outputVariables>
   </nodes>
   <nodes xsi:type="model:NodeElementLabel" id="invokeSpring1label" name="label" nodeType="label">
-    <location x="210" y="281"/>
-    <figSize height="17" width="115"/>
+    <location x="213" y="289"/>
+    <figSize height="12" width="115"/>
     <node>invokeSpring1</node>
   </nodes>
   <topRuler/>
   <leftRuler/>
-  <process:info author="LUCHAO" createTime="2015-12-09 14:51:32" date="2015-12-09Z" description="" name="loadData" version="7.0.0.0"/>
+  <process:info author="LUCHAO" createTime="2015-12-10 14:22:23" date="2015-12-10Z" description="" name="loadData" version="7.0.0.0"/>
   <process:variables/>
   <process:inputs varArgs="false">
-    <process:input description="" isArray="false" name="isRoot" primitiveType="Boolean"/>
     <process:input description="" isArray="false" name="id" primitiveType="Long"/>
+    <process:input description="" isArray="false" name="isRoot" primitiveType="Boolean"/>
   </process:inputs>
   <process:outputs>
-    <process:output anyType="com.jzsoft.eos.assessment.data.AssessmentItem" description="" isArray="true" name="items"/>
+    <process:output anyType="com.jzsoft.eos.assessment.data.AssessmentGroup" description="" isArray="true" name="groups"/>
   </process:outputs>
   <process:extAttribute1>public</process:extAttribute1>
   <process:transactionType>true</process:transactionType>

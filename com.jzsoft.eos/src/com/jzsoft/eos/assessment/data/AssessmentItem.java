@@ -31,6 +31,7 @@ import java.util.List;
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentItem#getWeight <em>Weight</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentItem#getSummary <em>Summary</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentItem#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentItem#getLevel <em>Level</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentItem#getParents <em>Parents</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentItem#getParent <em>Parent</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentItem#getScores <em>Scores</em>}</li>
@@ -205,6 +206,28 @@ public interface AssessmentItem extends DataObject {
 	 * @see #getDescription()
 	 */
 	public void setDescription(String description);
+
+	/**
+	 * Returns the value of the '<em><b>Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Level</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Level</em>' attribute.
+	 * @see #setLevel(int)
+	 */
+	public int getLevel();
+
+	/**
+	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentItem#getLevel <em>Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Level</em>' attribute.
+	 * @see #getLevel()
+	 */
+	public void setLevel(int level);
 
 	/**
 	 * Returns the value of the '<em><b>Parents</b></em>' attribute.

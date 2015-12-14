@@ -28,6 +28,9 @@ import java.util.List;
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentGroupImpl#getId <em>Id</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentGroupImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentGroupImpl#getEmail <em>Email</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentGroupImpl#getIsGroup <em>IsGroup</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentGroupImpl#getAccessCode <em>AccessCode</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentGroupImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentGroupImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentGroupImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentGroupImpl#getChildren <em>Children</em>}</li>
@@ -49,12 +52,15 @@ public class AssessmentGroupImpl extends ExtendedDataObjectImpl implements Asses
 	public final static int INDEX_ID = 0;
 	public final static int INDEX_NAME = 1;
 	public final static int INDEX_EMAIL = 2;
-	public final static int INDEX_DESCRIPTION = 3;
-	public final static int INDEX_PARENT = 4;
-	public final static int INDEX_CHILDREN = 5;
-	public final static int INDEX_SCORES = 6;
-	public final static int INDEX_TASK = 7;
-	public final static int SDO_PROPERTY_COUNT = 8;
+	public final static int INDEX_ISGROUP = 3;
+	public final static int INDEX_ACCESSCODE = 4;
+	public final static int INDEX_STATUS = 5;
+	public final static int INDEX_DESCRIPTION = 6;
+	public final static int INDEX_PARENT = 7;
+	public final static int INDEX_CHILDREN = 8;
+	public final static int INDEX_SCORES = 9;
+	public final static int INDEX_TASK = 10;
+	public final static int SDO_PROPERTY_COUNT = 11;
 
 	public final static int EXTENDED_PROPERTY_COUNT = -1;
 
@@ -154,6 +160,84 @@ public class AssessmentGroupImpl extends ExtendedDataObjectImpl implements Asses
 	 */
 	public void setEmail(String email) {
 		super.setByIndex(INDEX_EMAIL, email);
+	}
+
+	/**
+	 * Returns the value of the '<em><b>IsGroup</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>IsGroup</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>IsGroup</em>' attribute.
+	 * @see #setIsGroup(boolean)
+	 */
+	public boolean getIsGroup() {
+		return DataUtil.toBoolean(super.getByIndex(INDEX_ISGROUP, true));
+	}
+
+	/**
+	 * Sets the value of the '{@link com.primeton.eos.Test#getIsGroup <em>IsGroup</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>IsGroup</em>' attribute.
+	 * @see #getIsGroup()
+	 */
+	public void setIsGroup(boolean isGroup) {
+		super.setByIndex(INDEX_ISGROUP, isGroup);
+	}
+
+	/**
+	 * Returns the value of the '<em><b>AccessCode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>AccessCode</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>AccessCode</em>' attribute.
+	 * @see #setAccessCode(java.lang.String)
+	 */
+	public String getAccessCode() {
+		return DataUtil.toString(super.getByIndex(INDEX_ACCESSCODE, true));
+	}
+
+	/**
+	 * Sets the value of the '{@link com.primeton.eos.Test#getAccessCode <em>AccessCode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>AccessCode</em>' attribute.
+	 * @see #getAccessCode()
+	 */
+	public void setAccessCode(String accessCode) {
+		super.setByIndex(INDEX_ACCESSCODE, accessCode);
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Status</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Status</em>' attribute.
+	 * @see #setStatus(int)
+	 */
+	public int getStatus() {
+		return DataUtil.toInt(super.getByIndex(INDEX_STATUS, true));
+	}
+
+	/**
+	 * Sets the value of the '{@link com.primeton.eos.Test#getStatus <em>Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status</em>' attribute.
+	 * @see #getStatus()
+	 */
+	public void setStatus(int status) {
+		super.setByIndex(INDEX_STATUS, status);
 	}
 
 	/**

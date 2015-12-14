@@ -27,6 +27,9 @@ import java.util.List;
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getId <em>Id</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getName <em>Name</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getEmail <em>Email</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getIsGroup <em>IsGroup</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getAccessCode <em>AccessCode</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getStatus <em>Status</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getDescription <em>Description</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getParent <em>Parent</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getChildren <em>Children</em>}</li>
@@ -114,6 +117,72 @@ public interface AssessmentGroup extends DataObject {
 	 * @see #getEmail()
 	 */
 	public void setEmail(String email);
+
+	/**
+	 * Returns the value of the '<em><b>IsGroup</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>IsGroup</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>IsGroup</em>' attribute.
+	 * @see #setIsGroup(boolean)
+	 */
+	public boolean getIsGroup();
+
+	/**
+	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getIsGroup <em>IsGroup</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>IsGroup</em>' attribute.
+	 * @see #getIsGroup()
+	 */
+	public void setIsGroup(boolean isGroup);
+
+	/**
+	 * Returns the value of the '<em><b>AccessCode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>AccessCode</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>AccessCode</em>' attribute.
+	 * @see #setAccessCode(java.lang.String)
+	 */
+	public String getAccessCode();
+
+	/**
+	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getAccessCode <em>AccessCode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>AccessCode</em>' attribute.
+	 * @see #getAccessCode()
+	 */
+	public void setAccessCode(String accessCode);
+
+	/**
+	 * Returns the value of the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Status</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Status</em>' attribute.
+	 * @see #setStatus(int)
+	 */
+	public int getStatus();
+
+	/**
+	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getStatus <em>Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status</em>' attribute.
+	 * @see #getStatus()
+	 */
+	public void setStatus(int status);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.

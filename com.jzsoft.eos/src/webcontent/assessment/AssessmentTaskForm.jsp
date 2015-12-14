@@ -87,7 +87,7 @@
 
 			var data = form.getData(false, true);
 			var json = nui.encode(data);
-
+alert(json);
 			$.ajax({
 				url : urlStr,
 				type : 'POST',

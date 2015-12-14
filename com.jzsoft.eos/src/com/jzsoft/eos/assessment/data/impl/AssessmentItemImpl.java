@@ -32,6 +32,7 @@ import java.util.List;
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentItemImpl#getWeight <em>Weight</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentItemImpl#getSummary <em>Summary</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentItemImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentItemImpl#getLevel <em>Level</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentItemImpl#getParents <em>Parents</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentItemImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentItemImpl#getScores <em>Scores</em>}</li>
@@ -56,11 +57,12 @@ public class AssessmentItemImpl extends ExtendedDataObjectImpl implements Assess
 	public final static int INDEX_WEIGHT = 4;
 	public final static int INDEX_SUMMARY = 5;
 	public final static int INDEX_DESCRIPTION = 6;
-	public final static int INDEX_PARENTS = 7;
-	public final static int INDEX_PARENT = 8;
-	public final static int INDEX_SCORES = 9;
-	public final static int INDEX_TASK = 10;
-	public final static int SDO_PROPERTY_COUNT = 11;
+	public final static int INDEX_LEVEL = 7;
+	public final static int INDEX_PARENTS = 8;
+	public final static int INDEX_PARENT = 9;
+	public final static int INDEX_SCORES = 10;
+	public final static int INDEX_TASK = 11;
+	public final static int SDO_PROPERTY_COUNT = 12;
 
 	public final static int EXTENDED_PROPERTY_COUNT = -1;
 
@@ -264,6 +266,32 @@ public class AssessmentItemImpl extends ExtendedDataObjectImpl implements Assess
 	 */
 	public void setDescription(String description) {
 		super.setByIndex(INDEX_DESCRIPTION, description);
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Level</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Level</em>' attribute.
+	 * @see #setLevel(int)
+	 */
+	public int getLevel() {
+		return DataUtil.toInt(super.getByIndex(INDEX_LEVEL, true));
+	}
+
+	/**
+	 * Sets the value of the '{@link com.primeton.eos.Test#getLevel <em>Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Level</em>' attribute.
+	 * @see #getLevel()
+	 */
+	public void setLevel(int level) {
+		super.setByIndex(INDEX_LEVEL, level);
 	}
 
 	/**
