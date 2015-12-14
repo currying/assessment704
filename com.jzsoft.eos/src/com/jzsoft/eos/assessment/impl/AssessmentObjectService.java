@@ -6,6 +6,7 @@ package com.jzsoft.eos.assessment.impl;
 import com.eos.das.entity.IDASCriteria;
 import com.eos.spring.DASDaoSupport;
 import com.jzsoft.eos.assessment.IAssessmentObjectService;
+import com.jzsoft.eos.assessment.SequenceName;
 import com.jzsoft.eos.assessment.data.AssessmentObject;
 import com.jzsoft.eos.assessment.data.AssessmentTask;
 
@@ -69,6 +70,12 @@ public class AssessmentObjectService extends DASDaoSupport implements
 
 	public void addAssessmentObject(AssessmentObject assessmentObject) {
 		getDASTemplate().getPrimaryKey(assessmentObject);
+		try {
+			assessmentObject.setId(getDASTemplate().getNextSequence(
+					SequenceName.OBJECT_ID));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		getDASTemplate().insertEntity(assessmentObject);
 	}
 

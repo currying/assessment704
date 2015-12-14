@@ -61,9 +61,9 @@ public interface AssessmentItem extends DataObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(java.lang.String)
+	 * @see #setId(long)
 	 */
-	public String getId();
+	public long getId();
 
 	/**
 	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentItem#getId <em>Id</em>}' attribute.
@@ -72,7 +72,7 @@ public interface AssessmentItem extends DataObject {
 	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
 	 */
-	public void setId(String id);
+	public void setId(long id);
 
 	/**
 	 * Returns the value of the '<em><b>Number</b></em>' attribute.

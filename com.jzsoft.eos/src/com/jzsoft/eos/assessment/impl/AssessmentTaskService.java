@@ -7,6 +7,7 @@ import com.eos.das.entity.ExpressionHelper;
 import com.eos.das.entity.IDASCriteria;
 import com.eos.spring.DASDaoSupport;
 import com.jzsoft.eos.assessment.IAssessmentTaskService;
+import com.jzsoft.eos.assessment.SequenceName;
 import com.jzsoft.eos.assessment.data.AssessmentTask;
 
 /**
@@ -55,6 +56,13 @@ public class AssessmentTaskService extends DASDaoSupport implements
 	}
 
 	public void addAssessmentTask(AssessmentTask assessmentTask) {
+		getDASTemplate().getPrimaryKey(assessmentTask);
+		try {
+			assessmentTask.setId(getDASTemplate().getNextSequence(
+					SequenceName.TASK_ID));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		getDASTemplate().insertEntity(assessmentTask);
 	}
 

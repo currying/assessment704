@@ -54,9 +54,9 @@ public interface AssessmentScore extends DataObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(java.lang.String)
+	 * @see #setId(long)
 	 */
-	public String getId();
+	public long getId();
 
 	/**
 	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentScore#getId <em>Id</em>}' attribute.
@@ -65,7 +65,7 @@ public interface AssessmentScore extends DataObject {
 	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
 	 */
-	public void setId(String id);
+	public void setId(long id);
 
 	/**
 	 * Returns the value of the '<em><b>Weight</b></em>' attribute.

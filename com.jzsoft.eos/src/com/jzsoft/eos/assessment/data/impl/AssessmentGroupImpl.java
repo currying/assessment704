@@ -87,10 +87,10 @@ public class AssessmentGroupImpl extends ExtendedDataObjectImpl implements Asses
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(java.lang.String)
+	 * @see #setId(long)
 	 */
-	public String getId() {
-		return DataUtil.toString(super.getByIndex(INDEX_ID, true));
+	public long getId() {
+		return DataUtil.toLong(super.getByIndex(INDEX_ID, true));
 	}
 
 	/**
@@ -100,7 +100,7 @@ public class AssessmentGroupImpl extends ExtendedDataObjectImpl implements Asses
 	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
 	 */
-	public void setId(String id) {
+	public void setId(long id) {
 		super.setByIndex(INDEX_ID, id);
 	}
 
