@@ -21,7 +21,6 @@
 		<!-- hidden域 -->
 		<input class="nui-hidden" name="assessmentObject.id" />
 
-
 		<div class="pui-grid pui-grid-responsive"
 			style="border: ridge; padding: 5px; height: 80%;">
 			<div class="pui-grid-row">
