@@ -9,7 +9,6 @@ import com.jzsoft.eos.assessment.IAssessmentObjectService;
 import com.jzsoft.eos.assessment.SequenceName;
 import com.jzsoft.eos.assessment.data.AssessmentObject;
 import com.jzsoft.eos.assessment.data.AssessmentTask;
-
 /**
  * <pre>
  * Title: 程序的中文名称
@@ -69,7 +68,7 @@ public class AssessmentObjectService extends DASDaoSupport implements
 	}
 
 	public void addAssessmentObject(AssessmentObject assessmentObject) {
-		getDASTemplate().getPrimaryKey(assessmentObject);
+//		getDASTemplate().getPrimaryKey(assessmentObject);
 		try {
 			assessmentObject.setId(getDASTemplate().getNextSequence(
 					SequenceName.OBJECT_ID));
