@@ -15,7 +15,7 @@
 			<arguments>
 				<dictionary>
 					<key>application</key>
-					<value>default</value>
+					<value>Assessment</value>
 				</dictionary>
 				<dictionary>
 					<key>database</key>
