@@ -30,7 +30,6 @@ public class AssessmentObjectService extends DASDaoSupport implements
 	 * 
 	 */
 	public AssessmentObjectService() {
-		// TODO 自动生成的构造函数存根
 	}
 
 	/*
