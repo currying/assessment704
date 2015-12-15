@@ -51,13 +51,12 @@
                 onNodeSelect="onTaskTreeNodeSelect">
             </ul>
         </div>
-    </div>
-
-<div class="nui-toolbar"
+        <div class="nui-toolbar"
 	style="padding:2px;border-top:0;border-left:0;border-right:0;"> <span
 	style="padding-left:5px;">名称：</span> <input id="key"
 	class="nui-textbox" onenter="onKeyEnter" /> <a class="nui-button"
 	iconCls="icon-search" plain="true" onclick="search()">查找</a> </div>
+    </div>
 
     <!-- 右侧考核对象与考核任务数据维护界面 -->
     <div title="center" region="center">
