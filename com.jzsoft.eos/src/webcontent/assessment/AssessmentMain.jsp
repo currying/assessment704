@@ -57,7 +57,6 @@
 	class="nui-textbox" onenter="onKeyEnter" /> <a class="nui-button"
 	iconCls="icon-search" plain="true" onclick="search()">查找</a> </div>
     </div>
-
     <!-- 右侧考核对象与考核任务数据维护界面 -->
     <div title="center" region="center">
 		<iframe id="contentFrame" style="width:100%;height:100%;border:0px"></iframe>
