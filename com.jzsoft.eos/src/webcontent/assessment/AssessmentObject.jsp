@@ -28,27 +28,31 @@
 				<td style="width: 100%;">
 					<a class="nui-button" iconCls="icon-addfolder" plain="true"
 						onclick="itemTreeGrid.doAddItem()">增加</a>
-					<a class="nui-button" iconCls="icon-edit" plain="true">修改</a>
 					<a class="nui-button" iconCls="icon-remove" plain="true"
 						onclick="itemTreeGrid.doDeleteNode();">删除</a>
+					<span class="separator"></span>
+					<a class="nui-button" iconCls="icon-save" plain="true">保存</a>
 				</td>
 				<td style="white-space: nowrap;">
-					<label style="font-family: Verdana;">Filter by: </label>
-					<input class="nui-textbox" />
+					<label>过滤：</label>
+					<input id="filterText" class="nui-textbox" emptyText="请输入名称..." />
 				</td>
 			</tr>
 		</table>
     </div>
     
 	<div class="nui-fit">
-		<div id="objectGrid" class="nui-datagrid" style="width:100%; height:100%" borderStyle="border:0"
-			url="com.jzsoft.eos.assessment.AssessmentObjectDataGrid.loadData.biz.ext" dataField="objects">
+		<div id="objectDataGrid" class="nui-datagrid" style="width:100%; height:100%" borderStyle="border:0"
+			idField="id" dataField="objects" autoLoad="true" multiSelect="true" selectOnLoad="true"
+			showModified="true" fitColumns="true"
+			url="com.jzsoft.eos.assessment.AssessmentObjectDataGrid.loadData.biz.ext">
+			
 			<div property="columns">
-		        <div type="indexcolumn"></div>
-		        <div type="checkcolumn"></div>
-		        <div field="number" width="120" headerAlign="center" allowSort="true">对象编号</div>    
-		        <div field="name" headerAlign="center" allowSort="true">对象名称</div>
-		        <div field="description" headerAlign="center" allowSort="true">对象描述</div>
+		        <div type="indexcolumn" headerAlign="center" width="30px">行号</div>
+		        <div type="checkcolumn" width="30px"></div>
+		        <div field="number" width="120px" headerAlign="center">对象编号</div>    
+		        <div field="name" width="120px" headerAlign="center">对象名称</div>
+		        <div name="description" width="720px" field="description" headerAlign="center">对象描述</div>
 		    </div>
 		</div>
 	</div>
@@ -56,6 +60,17 @@
 
 	<script type="text/javascript">
     	nui.parse();
+	
+		// Global
+		function openFrame(initParams) {
+    	}
+    	
+    	function closeFrameQuery() {
+    	}
+    	
+    	// nui.get("objectDataGrid").frozenColumns(0, 1);
+    	
+    	// objectDataGrid Event
     </script>
 </body>
 </html>

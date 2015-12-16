@@ -9,13 +9,13 @@
     <size height="28" width="28"/>
     <nodeLabel>start0label</nodeLabel>
   </nodes>
-  <nodes xsi:type="process:tEnd" id="end0" name="结束" displayName="结束" type="end">
+  <nodes xsi:type="process:tEnd" description="" id="end0" name="结束" displayName="结束" type="end">
     <targetConnections>link1</targetConnections>
     <location x="400" y="150"/>
     <size height="28" width="28"/>
     <nodeLabel>end0label</nodeLabel>
     <process:returns>
-      <process:return id="0" language="com.jzsoft.eos.assessment.data.AssessmentObject[]" name="objects" type="query" valueType="Java">objects</process:return>
+      <process:return id="0" name="objects" type="query">objects</process:return>
     </process:returns>
   </nodes>
   <nodes xsi:type="model:NodeElementLabel" id="start0label" name="label" displayName="label" nodeType="label">
