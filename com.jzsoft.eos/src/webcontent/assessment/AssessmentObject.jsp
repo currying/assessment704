@@ -29,9 +29,10 @@
 					<a class="nui-button" iconCls="icon-addfolder" plain="true"
 						onclick="onAddButtonClick">增加</a>
 					<a class="nui-button" iconCls="icon-remove" plain="true"
-						onclick="itemTreeGrid.doDeleteNode();">删除</a>
+						onclick="onDeleteButtonClick">删除</a>
 					<span class="separator"></span>
-					<a class="nui-button" iconCls="icon-save" plain="true">保存</a>
+					<a class="nui-button" iconCls="icon-save" plain="true"
+						onclick="onSaveButtonClick">保存</a>
 				</td>
 				<td style="white-space: nowrap;">
 					<label>过滤：</label>
@@ -76,11 +77,40 @@
     	function closeFrameQuery() {
     	}
     	
+    	// Toolbar button's event
     	function onAddButtonClick(event) {
     		var row = new Object();
-    		row.select = true;
     		objectDataGrid.addRow(row, 0);
-    		objectDataGrid.beginEditRow (1);
+    	}
+    	
+    	function onDeleteButtonClick(event) {
+    		var rows = objectDataGrid.getSelecteds();
+    		if (rows.length > 0) {
+    			objectDataGrid.removeRows(rows, true);
+    		}
+    	}
+    	
+    	function onSaveButtonClick(event) {
+            saveData();
+    	}
+    	
+    	// Global function
+    	function saveData() {
+    		var data = {objects : objectDataGrid.getChanges()};
+            var json = nui.encode(data);
+            
+            objectDataGrid.loading("保存中，请稍后......");
+            nui.ajax({
+                url: "org.gocom.components.nui.demo.df.impl.TEmployee.saveEmployee.biz.ext",
+                type: 'POST',
+                data: json,
+                success: function (text) {
+                    objectDataGrid.reload();
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    nui.alert(xhr.responseText);
+                }
+            });
     	}
     	
     	// nui.get("objectDataGrid").frozenColumns(0, 1);
