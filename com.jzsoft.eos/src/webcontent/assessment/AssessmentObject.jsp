@@ -27,7 +27,7 @@
 			<tr>
 				<td style="width: 100%;">
 					<a class="nui-button" iconCls="icon-addfolder" plain="true"
-						onclick="itemTreeGrid.doAddItem()">增加</a>
+						onclick="onAddButtonClick">增加</a>
 					<a class="nui-button" iconCls="icon-remove" plain="true"
 						onclick="itemTreeGrid.doDeleteNode();">删除</a>
 					<span class="separator"></span>
@@ -44,15 +44,21 @@
 	<div class="nui-fit">
 		<div id="objectDataGrid" class="nui-datagrid" style="width:100%; height:100%" borderStyle="border:0"
 			idField="id" dataField="objects" autoLoad="true" multiSelect="true" selectOnLoad="true"
-			showModified="true" fitColumns="true"
+			showModified="true" fitColumns="true" allowCellEdit="true" allowCellSelect="true"
 			url="com.jzsoft.eos.assessment.AssessmentObjectDataGrid.loadData.biz.ext">
 			
 			<div property="columns">
 		        <div type="indexcolumn" headerAlign="center" width="30px">行号</div>
 		        <div type="checkcolumn" width="30px"></div>
-		        <div field="number" width="120px" headerAlign="center">对象编号</div>    
-		        <div field="name" width="120px" headerAlign="center">对象名称</div>
-		        <div name="description" width="720px" field="description" headerAlign="center">对象描述</div>
+		        <div field="number" width="120px" headerAlign="center">对象编号
+		        	<input property="editor" class="nui-textbox" style="width:100%;" />
+		        </div>    
+		        <div field="name" width="120px" headerAlign="center">对象名称
+		        	<input property="editor" class="nui-textbox" style="width:100%;" />
+		        </div>
+		        <div name="description" width="720px" field="description" headerAlign="center">对象描述
+		        	<input property="editor" class="nui-textbox" style="width:100%;" />
+		        </div>
 		    </div>
 		</div>
 	</div>
@@ -61,11 +67,20 @@
 	<script type="text/javascript">
     	nui.parse();
 	
+		var objectDataGrid = nui.get("objectDataGrid");
+	
 		// Global
 		function openFrame(initParams) {
     	}
     	
     	function closeFrameQuery() {
+    	}
+    	
+    	function onAddButtonClick(event) {
+    		var row = new Object();
+    		row.select = true;
+    		objectDataGrid.addRow(row, 0);
+    		objectDataGrid.beginEditRow (1);
     	}
     	
     	// nui.get("objectDataGrid").frozenColumns(0, 1);
