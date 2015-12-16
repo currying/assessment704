@@ -31,7 +31,7 @@
             	<tr>
             		<td width="40px" align="right">名称：</td>
             		<td>
-            			<input id="searchText" class="nui-textbox" style="width:100%" emptyText="请输入名称后回车"></input>
+            			<input id="searchText" class="nui-textbox" style="width:100%" emptyText="请输入名称..."></input>
 					</td>
             	</tr>
             </table>
