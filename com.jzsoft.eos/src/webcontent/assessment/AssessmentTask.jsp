@@ -35,7 +35,7 @@
 	                </tr>
 	            </table>           
 	         </div>
-	  <!--  </div>  -->
+	    <!--</div>  -->
 	    <!-- dataGrid展示页面 -->
 	        <div id="datagrid2" dataField="assessmenttasks" class="nui-datagrid" style="width:100%;height:90%;" allowResize="true"
         url="com.jzsoft.csic704.assessmenttaskbiz.queryAssessmentTasks.biz.ext"  multiSelect="true" >
