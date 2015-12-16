@@ -31,10 +31,6 @@
 					<a class="nui-button" iconCls="icon-edit" plain="true">修改</a>
 					<a class="nui-button" iconCls="icon-remove" plain="true"
 						onclick="itemTreeGrid.doDeleteNode();">删除</a>
-					<span class="separator"></span>
-					<a class="nui-button" iconCls="icon-reload" plain="true">刷新</a>
-					<a class="nui-button" iconCls="icon-expand" onclick="itemTreeGrid.expandAll();" plain="true">展开</a>
-					<a class="nui-button" iconCls="icon-download" plain="true">下载</a>
 				</td>
 				<td style="white-space: nowrap;">
 					<label style="font-family: Verdana;">Filter by: </label>
@@ -45,15 +41,14 @@
     </div>
     
 	<div class="nui-fit">
-		<div id="objectGrid" class="nui-datagrid" style="width:100%; height:100%" borderStyle="border:0">
+		<div id="objectGrid" class="nui-datagrid" style="width:100%; height:100%" borderStyle="border:0"
+			url="com.jzsoft.eos.assessment.AssessmentObjectDataGrid.loadData.biz.ext" dataField="objects">
 			<div property="columns">
-		        <div type="indexcolumn" ></div>
-		        <div field="loginname" width="120" headerAlign="center" allowSort="true">员工帐号</div>    
-		        <div field="name" width="120" headerAlign="center" allowSort="true">姓名</div>                            
-		        <div field="gender" width="100" renderer="onGenderRenderer" align="center" headerAlign="center">性别</div>
-		        <div field="salary" dataType="currency" currencyUnit="￥" align="right" width="100" allowSort="true">薪资</div>                                
-		        <div field="age" width="100" allowSort="true">年龄</div>
-		        <div field="createtime" width="100" headerAlign="center" dateFormat="yyyy-MM-dd" allowSort="true">创建日期</div>                
+		        <div type="indexcolumn"></div>
+		        <div type="checkcolumn"></div>
+		        <div field="number" width="120" headerAlign="center" allowSort="true">对象编号</div>    
+		        <div field="name" headerAlign="center" allowSort="true">对象名称</div>
+		        <div field="description" headerAlign="center" allowSort="true">对象描述</div>
 		    </div>
 		</div>
 	</div>
