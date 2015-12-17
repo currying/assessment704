@@ -75,6 +75,12 @@
     	}
     	
     	function closeFrameQuery() {
+    		if (objectDataGrid.getChanges().length > 0) {
+    			var isOk = confirm("页面数据发生变化，是否需要保存？");
+    			if (isOk == true) return false;
+    		}
+    		
+    		return true;
     	}
     	
     	// Toolbar button's event
@@ -123,7 +129,15 @@
                 	deleted: deleted,
                 	updated: updated
                 }),
-                success: function (success) { 
+                success: function (exception) {
+                
+                	if (exception) {
+                		alert(nui.encode(exception));
+                	}
+                
+                	if (window.parent && window.parent.refresh) {
+                		window.parent.refresh();
+                	}
                     objectDataGrid.reload();
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

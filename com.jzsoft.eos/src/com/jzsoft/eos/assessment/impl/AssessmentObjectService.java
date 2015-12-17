@@ -63,7 +63,5 @@ public class AssessmentObjectService extends DASDaoSupport implements
 		getDASTemplate().updateEntityBatch(updated);
 		
 		return true;
-		
-
 	}
 }
