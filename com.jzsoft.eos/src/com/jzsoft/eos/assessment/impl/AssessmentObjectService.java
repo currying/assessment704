@@ -3,6 +3,9 @@
  */
 package com.jzsoft.eos.assessment.impl;
 
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.eos.das.entity.IDASCriteria;
 import com.eos.spring.DASDaoSupport;
 import com.jzsoft.eos.assessment.IAssessmentObjectService;
@@ -48,22 +51,21 @@ public class AssessmentObjectService extends DASDaoSupport implements
 
 		return results;
 	}
-	
-	public boolean save(AssessmentObject[] created, AssessmentObject[] deleted, AssessmentObject[] updated) {
+
+	public boolean save(AssessmentObject[] created, AssessmentObject[] deleted,
+			AssessmentObject[] updated) {
 		try {
-			for(AssessmentObject object : created) {
-				object.setId(getDASTemplate().getNextSequence(SequenceName.OBJECT_ID));
+			for (AssessmentObject object : created) {
+				object.setId(getDASTemplate().getNextSequence(
+						SequenceName.OBJECT_ID));
 			}
 		} catch (Exception e) {
-			
+
 		}
-		
 		getDASTemplate().insertEntityBatch(created);
 		getDASTemplate().deleteEntityBatch(deleted);
 		getDASTemplate().updateEntityBatch(updated);
-		
-		return true;
-		
 
+		return true;
 	}
 }
