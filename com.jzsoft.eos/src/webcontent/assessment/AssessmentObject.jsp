@@ -126,7 +126,6 @@
                 success: function (success) {
                 	
                     objectDataGrid.reload();
-                    if ()
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     alert(jqXHR.responseText);
