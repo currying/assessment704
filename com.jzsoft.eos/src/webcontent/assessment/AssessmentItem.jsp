@@ -27,8 +27,7 @@ html,body {
 
 </head>
 <body>
-
-	<table>
+	<table style="width:100%;">
 		<thead>
 			<tr>
 				<th colspan="8"><h1>
@@ -38,14 +37,17 @@ html,body {
 		</thead>
 		<tbody>
 			<tr>
-				<td>考核对象</td>
-				<td><input></td>
+				<td>考核对象：</td>
+				<td><input class="nui-textbox" enabled="false"
+					style="width: 200px;"></td>
 				<td></td>
-				<td>考核状态</td>
-				<td><input></td>
+				<td>考核状态：</td>
+				<td><input class="nui-textbox" enabled="false"
+					style="width: 200px;"></td>
 				<td></td>
-				<td>考核得分</td>
-				<td><input></td>
+				<td>考核得分：</td>
+				<td><input class="nui-textbox" enabled="false"
+					style="width: 200px;"></td>
 			</tr>
 		</tbody>
 	</table>
