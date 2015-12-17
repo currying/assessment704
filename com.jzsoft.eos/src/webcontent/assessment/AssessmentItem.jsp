@@ -83,7 +83,7 @@ html,body {
 					<div id="itemTreeGrid" class="nui-treegrid"
 						style="width: 100%; height: 100%;" borderStyle="border:0"
 						showTreeIcon="true" treeColumn="name" idField="id"
-						allowResize="false" fitColumns="false" autoLoad="false"
+						allowResize="false" fitColumns="true" autoLoad="false"
 						selectOnLoad="true" dataField="items"
 						url="com.jzsoft.eos.assessment.AssessmentItemTreeGrid.loadData.biz.ext"
 						onBeforeLoad="onItemTreeGridBeforeLoad"
@@ -91,34 +91,34 @@ html,body {
 						onNodeSelect="onItemTreeGridNodeSelect">
 
 						<div property="columns">
-							<div type="indexcolumn"></div>
+							<div type="indexcolumn" width="30"></div>
 							<div name="name" field="name" headerAlign="center" width="200">考核指标</div>
-							<div field="weight" headerAlign="center" width="80">职能权重</div>
-							<div field="score" headerAlign="center" width="80">职能得分</div>
-							<div field="summary" width="400" headerAlign="center"
+							<div field="weight" headerAlign="center" width="60">职能权重</div>
+							<div field="score" headerAlign="center" width="60">职能得分</div>
+							<div field="summary" width="100" headerAlign="center"
 								align="right">指标摘要</div>
-							<div field="description" width="" headerAlign="center" align="">指标描述</div>
+							<div field="description" width="200" headerAlign="center" align="">指标描述</div>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div size="40%" showCollapseButton="true">
+			<div size="300" showCollapseButton="true">
 				<div class="nui-fit">
 					<div id="groupTreeGrid" class="nui-treegrid"
 						style="width: 100%; height: 100%"
 						borderStyle="border-left:0; border-right:0;" showTreeIcon="true"
 						treeColumn="name" idField="id" allowResize="false"
-						fitColumns="false" selectOnLoad="true" dataField="groups"
+						fitColumns="true" selectOnLoad="true" dataField="groups"
 						url="com.jzsoft.eos.assessment.AssessmentGroupTreeGrid.loadData.biz.ext"
 						onBeforeLoad="onGroupTreeGridBeforeLoad"
 						onPreLoad="onGroupTreeGridPreLoad">
 
 						<div property="columns">
-							<div type="indexcolumn"></div>
-							<div name="name" field="name" headerAlign="center" width="200">评审员</div>
-							<div field="score.weight" headerAlign="center" width="200">评审权重</div>
-							<div field="score.score" headerAlign="center" width="200">评审得分</div>
+							<div type="indexcolumn" width="20"></div>
+							<div name="name" field="name" headerAlign="center" width="60">评审员</div>
+							<div field="score.weight" headerAlign="center" width="50">评审权重</div>
+							<div field="score.score" headerAlign="center" width="50">评审得分</div>
 						</div>
 					</div>
 				</div>
