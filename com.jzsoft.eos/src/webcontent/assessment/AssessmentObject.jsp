@@ -124,6 +124,7 @@
                 	updated: updated
                 }),
                 success: function (success) {
+                	
                     objectDataGrid.reload();
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

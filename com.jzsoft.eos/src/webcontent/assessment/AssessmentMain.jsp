@@ -158,6 +158,11 @@
 		return navTree;
 	}
 	
+	function refresh() {
+		var node = navTree.getSelectedNode();
+		navTree.loadNode(node);
+	}
+	
 	function filterNavTree(text) {
 		if (text == "") {
 			navTree.clearFilter();
