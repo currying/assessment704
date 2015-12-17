@@ -55,15 +55,15 @@ public class AssessmentItemService extends DASDaoSupport implements
 		return results;
 	}
 
-	public boolean addItem(AssessmentItem newItem) {
+	public boolean insert(AssessmentItem item) {
 
 		try {
-			newItem.setId(getDASTemplate()
+			item.setId(getDASTemplate()
 					.getNextSequence(SequenceName.ITEM_ID));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		getDASTemplate().insertEntity(newItem);
+		getDASTemplate().insertEntity(item);
 		return true;
 	}
 }

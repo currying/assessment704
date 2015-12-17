@@ -67,33 +67,4 @@ public class AssessmentObjectService extends DASDaoSupport implements
 		
 		return true;
 	}
-
-	public AssessmentObject[] loadObjectTaskTreeData() {
-		IDASCriteria dasCriteria = getDASTemplate().createCriteria(
-				AssessmentObject.QNAME).asc("number");
-		AssessmentObject[] results = getDASTemplate()
-				.queryEntitiesByCriteriaEntity(AssessmentObject.class,
-						dasCriteria);
-		for (int i = 0; i < results.length; i++) {
-			getDASTemplate().getRelationEntities(AssessmentTask.class,
-					results[i], "tasks");
-		}
-		return results;
-	}
-
-	public void addAssessmentObject(AssessmentObject assessmentObject) {
-		try {
-			assessmentObject.setId(getDASTemplate().getNextSequence(
-					SequenceName.OBJECT_ID));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		getDASTemplate().insertEntity(assessmentObject);
-	}
-
-	public void deleteAssessmentObject(AssessmentObject[] assessmentObjects) {
-		for (AssessmentObject object : assessmentObjects) {
-			getDASTemplate().deleteEntityCascade(object);
-		}
-	}
 }

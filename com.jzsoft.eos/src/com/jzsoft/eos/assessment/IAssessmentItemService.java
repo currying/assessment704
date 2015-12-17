@@ -5,5 +5,5 @@ import com.jzsoft.eos.assessment.data.AssessmentItem;
 public interface IAssessmentItemService {
 	public AssessmentItem[] getRootItemsByTaskId(Long taskId);
 	public AssessmentItem[] getItemsByParentId(Long parentId);
-	public boolean addItem(AssessmentItem newItem);
+	public boolean insert(AssessmentItem item);
 }

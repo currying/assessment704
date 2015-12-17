@@ -52,21 +52,4 @@ public class AssessmentTaskService extends DASDaoSupport implements
 						dasCriteria);
 		return results;
 	}
-
-	public void addAssessmentTask(AssessmentTask assessmentTask) {
-		getDASTemplate().getPrimaryKey(assessmentTask);
-		try {
-			assessmentTask.setId(getDASTemplate().getNextSequence(
-					SequenceName.TASK_ID));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		getDASTemplate().insertEntity(assessmentTask);
-	}
-
-	public void deleteAssessmentTask(AssessmentTask[] assessmentTasks) {
-		for (AssessmentTask task : assessmentTasks) {
-			getDASTemplate().deleteEntityCascade(task);
-		}
-	}
 }
