@@ -15,23 +15,24 @@
     <size height="28" width="28"/>
     <nodeLabel>end0label</nodeLabel>
     <process:returns>
-      <process:return id="0" language="Boolean" name="success" type="query" valueType="Primitive">success</process:return>
+      <process:return id="0" language="String" name="result" type="query" valueType="Primitive">result</process:return>
     </process:returns>
   </nodes>
   <nodes xsi:type="model:NodeElementLabel" id="start0label" name="label" displayName="label" nodeType="label">
     <location x="102" y="186"/>
-    <figSize height="12" width="25"/>
+    <figSize height="17" width="25"/>
     <node>start0</node>
   </nodes>
   <nodes xsi:type="model:NodeElementLabel" id="end0label" name="label" displayName="label" nodeType="label">
     <location x="402" y="186"/>
-    <figSize height="12" width="25"/>
+    <figSize height="17" width="25"/>
     <node>end0</node>
   </nodes>
   <nodes xsi:type="process:tInvoke" description="" id="invokeSpring0" name="save" displayName="save" type="invoke" index="0" invokeType="invoke_spring" varArgs="false">
     <sourceConnections xsi:type="process:tLink" id="link1" name="link1" displayName="连接线" isDefault="true" type="transition">
       <sourceNode>invokeSpring0</sourceNode>
       <targetNode>end0</targetNode>
+      <process:transitionCondition/>
     </sourceConnections>
     <targetConnections>link0</targetConnections>
     <location x="253" y="150"/>
@@ -47,12 +48,12 @@
       <process:inputVariable id="2" name="updated" type="query" value="com.jzsoft.eos.assessment.data.AssessmentObject[]" valueType="Java" pattern="reference">updated</process:inputVariable>
     </process:inputVariables>
     <process:outputVariables>
-      <process:outputVariable id="0" name="out0" type="query" value="boolean" valueType="Java">success</process:outputVariable>
+      <process:outputVariable id="0" name="out0" type="query" value="java.lang.String" valueType="Java">result</process:outputVariable>
     </process:outputVariables>
   </nodes>
   <nodes xsi:type="model:NodeElementLabel" id="invokeSpring0label" name="label" nodeType="label">
-    <location x="255" y="186"/>
-    <figSize height="12" width="25"/>
+    <location x="254" y="186"/>
+    <figSize height="17" width="27"/>
     <node>invokeSpring0</node>
   </nodes>
   <topRuler/>
@@ -65,7 +66,7 @@
     <process:input anyType="com.jzsoft.eos.assessment.data.AssessmentObject" description="" isArray="true" name="updated"/>
   </process:inputs>
   <process:outputs>
-    <process:output description="" isArray="false" name="success" primitiveType="Boolean"/>
+    <process:output description="" isArray="false" name="result" primitiveType="String"/>
   </process:outputs>
   <process:extAttribute1>public</process:extAttribute1>
   <process:transactionType>true</process:transactionType>
