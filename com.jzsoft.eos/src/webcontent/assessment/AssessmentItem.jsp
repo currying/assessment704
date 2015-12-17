@@ -27,11 +27,11 @@ html,body {
 
 </head>
 <body>
-	<table style="width:100%;">
+	<table style="width: 100%;">
 		<thead>
 			<tr>
 				<th colspan="8"><h1>
-						<label id="title">xxxxxxxssssssssssssssss</label>
+						<input id="title" class="nui-textbox" enabled="false" id="title"/>
 					</h1></th>
 			</tr>
 		</thead>
@@ -97,7 +97,8 @@ html,body {
 							<div field="score" headerAlign="center" width="60">职能得分</div>
 							<div field="summary" width="100" headerAlign="center"
 								align="right">指标摘要</div>
-							<div field="description" width="200" headerAlign="center" align="">指标描述</div>
+							<div field="description" width="200" headerAlign="center"
+								align="">指标描述</div>
 						</div>
 					</div>
 				</div>
@@ -132,12 +133,13 @@ html,body {
 		var itemTreeGrid = nui.get("itemTreeGrid");
 
 		var params;
-
+		
 		////////////////////////////////////////////////////////////
 		function openFrame(initParams) {
 			params = initParams;
 			var tree = nui.get("itemTreeGrid");
 			tree.load();
+			queryTaskByid(params.taskId);
 		}
 
 		function closeFrameQuery() {
@@ -261,6 +263,25 @@ html,body {
 						},
 						success : function(result) {
 							fn(result.score);
+						},
+						error : function() {
+							nui.alert("FAILURE");
+						}
+					});
+		}
+
+		function queryTaskByid(taskId) {
+			nui
+					.ajax({
+						async : false,
+						url : "com.jzsoft.eos.assessment.AssessmentTaskBiz.queryTaskById.biz.ext",
+						type : "get",
+						contentType : "text/json",
+						data : {
+							taskId : taskId
+						},
+						success : function(result) {
+						nui.get("title").setText(result.assessmentTask.title);
 						},
 						error : function() {
 							nui.alert("FAILURE");

@@ -6,4 +6,5 @@ public interface IAssessmentTaskService {
 	public abstract AssessmentTask[] getAllTasks();
 
 	public abstract AssessmentTask[] getTasksByObjectId(long objectId);
+	public abstract AssessmentTask getTasksById(long taskId);
 }
