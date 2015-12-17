@@ -129,17 +129,32 @@
                 	deleted: deleted,
                 	updated: updated
                 }),
-                success: function (exception) {
+                success: function (result) { 
+                	var reload = function() {
+	                	if (window.parent && window.parent.refresh) {
+	                		window.parent.refresh();
+	                	}
+	                	
+	                	objectDataGrid.reload();
+                	};
                 
-                	if (exception) {
-                		alert(nui.encode(exception));
+                	if (result.exception) {
+                		objectDataGrid.unmask();
+                		nui.open({
+							url : "Error.jsp",
+							title : "数据保存失败",
+							width : 600,
+							height : 360,
+							allowResize : false,
+							showShadow : true,
+							onload : function() {
+								var iframe = this.getIFrameEl();
+								iframe.contentWindow.init(result.exception, reload);
+							}
+						});
+                	} else {
+                		reload();
                 	}
-                
-                	if (window.parent && window.parent.refresh) {
-                		window.parent.refresh();
-                	}
-                	
-                	objectDataGrid.reload();
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     alert(jqXHR.responseText);

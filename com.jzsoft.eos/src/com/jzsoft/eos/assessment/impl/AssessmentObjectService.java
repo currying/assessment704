@@ -53,8 +53,8 @@ public class AssessmentObjectService extends DASDaoSupport implements
 			AssessmentObject[] deleted, AssessmentObject[] updated) {
 		try {
 			for (AssessmentObject object : created) {
-				object.setId(getDASTemplate().getNextSequence(
-						SequenceName.OBJECT_ID));
+				//object.setId(getDASTemplate().getNextSequence(
+				//		SequenceName.OBJECT_ID));
 			}
 		} catch (Exception e) {
 
