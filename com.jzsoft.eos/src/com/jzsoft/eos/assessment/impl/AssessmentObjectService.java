@@ -48,6 +48,10 @@ public class AssessmentObjectService extends DASDaoSupport implements
 
 		return results;
 	}
+	
+	public boolean save(AssessmentObject[] created, AssessmentObject[] deleted, AssessmentObject[] updated) {
+		return true;
+	}
 
 	public AssessmentObject[] loadObjectTaskTreeData() {
 		IDASCriteria dasCriteria = getDASTemplate().createCriteria(
