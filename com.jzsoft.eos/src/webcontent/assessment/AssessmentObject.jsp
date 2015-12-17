@@ -123,8 +123,7 @@
                 	deleted: deleted,
                 	updated: updated
                 }),
-                success: function (success) {
-                	
+                success: function (success) { 
                     objectDataGrid.reload();
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
