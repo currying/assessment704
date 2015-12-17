@@ -96,26 +96,41 @@
     	
     	// Global function
     	function saveData() {
-    		var data = {objects : objectDataGrid.getChanges()};
-            var json = nui.encode(data);
-            
-            objectDataGrid.loading("保存中，请稍后......");
+    		var changes = objectDataGrid.getChanges();
+    		if (changes.length == 0)
+    			return;
+    		
+    		var created = new Array();
+    		var deleted = new Array();
+    		var updated = new Array();
+    		
+    		changes.forEach(function(row) {
+    			if (row._state == "added") {
+    				created.push(row);
+    			} else if (row._state == "removed") {
+    				deleted.push(row);
+    			} else if (row._state == "modified") {
+    				updated.push(row);
+    			}
+    		});
+    		
+    		objectDataGrid.loading("保存中，请稍后......");
             nui.ajax({
-                url: "org.gocom.components.nui.demo.df.impl.TEmployee.saveEmployee.biz.ext",
+                url: "com.jzsoft.eos.assessment.AssessmentObjectDataGrid.saveData.biz.ext",
                 type: 'POST',
-                data: json,
-                success: function (text) {
+                data: nui.encode({
+                	created: created,
+                	deleted: deleted,
+                	updated: updated
+                }),
+                success: function (success) {
                     objectDataGrid.reload();
                 },
-                error: function (xhr, textStatus, errorThrown) {
-                    nui.alert(xhr.responseText);
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert(jqXHR.responseText);
                 }
             });
     	}
-    	
-    	// nui.get("objectDataGrid").frozenColumns(0, 1);
-    	
-    	// objectDataGrid Event
     </script>
 </body>
 </html>

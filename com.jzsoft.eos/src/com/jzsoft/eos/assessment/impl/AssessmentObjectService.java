@@ -50,6 +50,21 @@ public class AssessmentObjectService extends DASDaoSupport implements
 	}
 	
 	public boolean save(AssessmentObject[] created, AssessmentObject[] deleted, AssessmentObject[] updated) {
+		getDASTemplate().insertEntityBatch(created);
+		
+		try {
+			for(AssessmentObject object : created) {
+				System.out.println("XXXXXXXXXXXX");
+				object.setId(getDASTemplate().getNextSequence(SequenceName.OBJECT_ID));
+			}
+		} catch (Exception e) {
+			
+		}
+		
+		getDASTemplate().insertEntityBatch(created);
+		getDASTemplate().deleteEntityBatch(deleted);
+		getDASTemplate().updateEntityBatch(updated);
+		
 		return true;
 	}
 
