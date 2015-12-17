@@ -13,12 +13,17 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <script src="<%=request.getContextPath()%>/common/nui/nui.js"
 	type="text/javascript"></script>
-	
-	<style type="text/css">
-    html, body{
-        margin:0;padding:0;border:0;width:100%;height:100%;overflow:hidden;
-    }    
-    </style>
+
+<style type="text/css">
+html,body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+</style>
 
 </head>
 <body>
@@ -26,17 +31,19 @@
 	<table>
 		<thead>
 			<tr>
-				<td><h1>
-						2015年技术部考核<small>2015nia</small>
-					</h1></td>
+				<th colspan="8"><h1>
+						<label id="title">xxxxxxxssssssssssssssss</label>
+					</h1></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
 				<td>考核对象</td>
 				<td><input></td>
+				<td></td>
 				<td>考核状态</td>
 				<td><input></td>
+				<td></td>
 				<td>考核得分</td>
 				<td><input></td>
 			</tr>
@@ -45,63 +52,66 @@
 	<hr />
 
 	<div class="nui-fit">
-		<div class="nui-splitter" style="width:100%; height:100%;" borderStyle="border:0">
+		<div class="nui-splitter" style="width: 100%; height: 100%;"
+			borderStyle="border:0">
 			<div size="60%">
-				<div class="nui-toolbar" style="padding:2px; border-left:0; border-right:0;">
+				<div class="nui-toolbar"
+					style="padding: 2px; border-left: 0; border-right: 0;">
 					<table style="width: 100%;">
 						<tr>
-							<td style="width: 100%;">
-								<a class="nui-button" iconCls="icon-addfolder" plain="true"
-									onclick="itemTreeGrid.doAddItem()">增加</a>
-								<a class="nui-button" iconCls="icon-edit" plain="true">修改</a>
-								<a class="nui-button" iconCls="icon-remove" plain="true"
-									onclick="itemTreeGrid.doDeleteNode();">删除</a>
-								<span class="separator"></span>
-								<a class="nui-button" iconCls="icon-reload" plain="true">刷新</a>
-								<a class="nui-button" iconCls="icon-expand" onclick="itemTreeGrid.expandAll();" plain="true">展开</a>
-								<a class="nui-button" iconCls="icon-download" plain="true">下载</a>
-							</td>
-							<td style="white-space: nowrap;">
-								<label style="font-family: Verdana;">Filter by: </label>
-								<input class="nui-textbox" />
-							</td>
+							<td style="width: 100%;"><a class="nui-button"
+								iconCls="icon-addfolder" plain="true"
+								onclick="itemTreeGrid.doAddItem()">增加</a> <a class="nui-button"
+								iconCls="icon-edit" plain="true">修改</a> <a class="nui-button"
+								iconCls="icon-remove" plain="true"
+								onclick="itemTreeGrid.doDeleteNode();">删除</a> <span
+								class="separator"></span> <a class="nui-button"
+								iconCls="icon-reload" plain="true">刷新</a> <a class="nui-button"
+								iconCls="icon-expand" onclick="itemTreeGrid.expandAll();"
+								plain="true">展开</a> <a class="nui-button"
+								iconCls="icon-download" plain="true">下载</a></td>
+							<td style="white-space: nowrap;"><label
+								style="font-family: Verdana;">Filter by: </label> <input
+								class="nui-textbox" /></td>
 						</tr>
 					</table>
 				</div>
-	
+
 				<div class="nui-fit" border="0">
 					<div id="itemTreeGrid" class="nui-treegrid"
-						style="width:100%; height:100%;" borderStyle="border:0"
-						showTreeIcon="true" treeColumn="name" idField="id" allowResize="false" fitColumns="false"
-						autoLoad="false" selectOnLoad="true" dataField="items"
+						style="width: 100%; height: 100%;" borderStyle="border:0"
+						showTreeIcon="true" treeColumn="name" idField="id"
+						allowResize="false" fitColumns="false" autoLoad="false"
+						selectOnLoad="true" dataField="items"
 						url="com.jzsoft.eos.assessment.AssessmentItemTreeGrid.loadData.biz.ext"
-						
 						onBeforeLoad="onItemTreeGridBeforeLoad"
 						onPreLoad="onItemTreeGridPreLoad"
 						onNodeSelect="onItemTreeGridNodeSelect">
-		
+
 						<div property="columns">
 							<div type="indexcolumn"></div>
 							<div name="name" field="name" headerAlign="center" width="200">考核指标</div>
 							<div field="weight" headerAlign="center" width="80">职能权重</div>
 							<div field="score" headerAlign="center" width="80">职能得分</div>
-							<div field="summary" width="400" headerAlign="center" align="right">指标摘要</div>
+							<div field="summary" width="400" headerAlign="center"
+								align="right">指标摘要</div>
 							<div field="description" width="" headerAlign="center" align="">指标描述</div>
 						</div>
 					</div>
 				</div>
 			</div>
-	
+
 			<div size="40%" showCollapseButton="true">
 				<div class="nui-fit">
 					<div id="groupTreeGrid" class="nui-treegrid"
-						style="width: 100%; height: 100%" borderStyle="border-left:0; border-right:0;"
-						showTreeIcon="true" treeColumn="name" idField="id" allowResize="false" fitColumns="false"
-						selectOnLoad="true" dataField="groups"
+						style="width: 100%; height: 100%"
+						borderStyle="border-left:0; border-right:0;" showTreeIcon="true"
+						treeColumn="name" idField="id" allowResize="false"
+						fitColumns="false" selectOnLoad="true" dataField="groups"
 						url="com.jzsoft.eos.assessment.AssessmentGroupTreeGrid.loadData.biz.ext"
 						onBeforeLoad="onGroupTreeGridBeforeLoad"
 						onPreLoad="onGroupTreeGridPreLoad">
-		
+
 						<div property="columns">
 							<div type="indexcolumn"></div>
 							<div name="name" field="name" headerAlign="center" width="200">评审员</div>
@@ -118,56 +128,58 @@
 	<script type="text/javascript">
 		nui.parse();
 		var itemTreeGrid = nui.get("itemTreeGrid");
-		
+
 		var params;
 
 		////////////////////////////////////////////////////////////
 		function openFrame(initParams) {
 			params = initParams;
 			var tree = nui.get("itemTreeGrid");
-			tree.reload();
-    	}
-    	
-    	function closeFrameQuery() {
-    	}		
+			tree.load();
+		}
+
+		function closeFrameQuery() {
+		}
 
 		////////////////////////////////////////////////////////////
 		itemTreeGrid.doDeleteNode = function(event) {
-			
+
 			node = itemTreeGrid.getSelectedNode();
 			if (node != undefined) {
 				itemTreeGrid.removeNode(node);
 			}
-			
+
 			console.log(itemTreeGrid.getChanges());
 		};
-		
+
 		itemTreeGrid.doAddItem = function(event) {
-		
+
 			// 
 			var node = itemTreeGrid.getSelectedNode();
-		
+
 			var callback = function() {
 				var newNode = new Object();
-			
+
 				itemTreeGrid.addNode(newNode, -1, node);
 			};
-		
+
 			nui.open({
-                url: "AssessmentAddItem.jsp",
-                title: "新增指标", width: 600, height: 360,
-                allowResize: false,
-                showShadow: true,
-                onload: function () {
-                    var iframe = this.getIFrameEl();
-                    iframe.contentWindow.init(node, callback);
-                },
-                ondestroy: function (action) {
-                    grid.reload();
-                }
-            });
+				url : "AssessmentAddItem.jsp",
+				title : "新增指标",
+				width : 600,
+				height : 360,
+				allowResize : false,
+				showShadow : true,
+				onload : function() {
+					var iframe = this.getIFrameEl();
+					iframe.contentWindow.init(node, callback);
+				},
+				ondestroy : function(action) {
+					grid.reload();
+				}
+			});
 		};
-		
+
 		function onItemTreeGridBeforeLoad(event) {
 			var tree = event.sender;
 			var node = event.node;
@@ -197,8 +209,6 @@
 
 		itemTreeGrid.on("drawcell", function(event) {
 		});
-		
-		
 
 		////////////////////////////////////////////////////////////
 
@@ -237,24 +247,24 @@
 		}
 
 		function loadScoreInformation(itemId, groupId, fn) {
-			nui.ajax({
-				async : false,
-				url : "com.jzsoft.eos.assessment.AssessmentGroupTreeGrid.loadScoreInformation.biz.ext",
-				type : "post",
-				contentType : "text/json",
-				data : {
-					itemId : itemId,
-					groupId : groupId
-				},
-				success : function(result) {
-					fn(result.score);
-				},
-				error : function() {
-					nui.alert("FAILURE");
-				}
-			});
+			nui
+					.ajax({
+						async : false,
+						url : "com.jzsoft.eos.assessment.AssessmentGroupTreeGrid.loadScoreInformation.biz.ext",
+						type : "post",
+						contentType : "text/json",
+						data : {
+							itemId : itemId,
+							groupId : groupId
+						},
+						success : function(result) {
+							fn(result.score);
+						},
+						error : function() {
+							nui.alert("FAILURE");
+						}
+					});
 		}
-		
 	</script>
 </body>
 </html>
