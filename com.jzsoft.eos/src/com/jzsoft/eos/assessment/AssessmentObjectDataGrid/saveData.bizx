@@ -14,9 +14,7 @@
     <location x="400" y="150"/>
     <size height="28" width="28"/>
     <nodeLabel>end0label</nodeLabel>
-    <process:returns>
-      <process:return id="0" language="Boolean" name="success" type="query" valueType="Primitive">success</process:return>
-    </process:returns>
+    <process:returns/>
   </nodes>
   <nodes xsi:type="model:NodeElementLabel" id="start0label" name="label" displayName="label" nodeType="label">
     <location x="102" y="186"/>
@@ -28,17 +26,18 @@
     <figSize height="12" width="25"/>
     <node>end0</node>
   </nodes>
-  <nodes xsi:type="process:tInvoke" description="" id="invokeSpring0" name="save" displayName="save" type="invoke" index="0" invokeType="invoke_spring" varArgs="false">
+  <nodes xsi:type="process:tInvoke" description="" id="invokeSpring0" name="save" displayName="saveObjects" type="invoke" index="0" invokeType="invoke_spring" varArgs="false">
     <sourceConnections xsi:type="process:tLink" id="link1" name="link1" displayName="连接线" isDefault="true" type="transition">
       <sourceNode>invokeSpring0</sourceNode>
       <targetNode>end0</targetNode>
+      <process:transitionCondition/>
     </sourceConnections>
     <targetConnections>link0</targetConnections>
     <location x="253" y="150"/>
     <size height="28" width="28"/>
     <nodeLabel>invokeSpring0label</nodeLabel>
     <process:spring methodType="beanID" synchronization="true" transactionType="join">
-      <process:partner type="literal">com.jzsoft.eos.assessment.impl.AssessmentObjectService.save</process:partner>
+      <process:partner type="literal">com.jzsoft.eos.assessment.impl.AssessmentObjectService.saveObjects</process:partner>
       <process:instance instanceName="AssessmentObjectServiceBean"/>
     </process:spring>
     <process:inputVariables>
@@ -46,9 +45,7 @@
       <process:inputVariable id="1" name="deleted" type="query" value="com.jzsoft.eos.assessment.data.AssessmentObject[]" valueType="Java" pattern="reference">deleted</process:inputVariable>
       <process:inputVariable id="2" name="updated" type="query" value="com.jzsoft.eos.assessment.data.AssessmentObject[]" valueType="Java" pattern="reference">updated</process:inputVariable>
     </process:inputVariables>
-    <process:outputVariables>
-      <process:outputVariable id="0" name="out0" type="query" value="boolean" valueType="Java">success</process:outputVariable>
-    </process:outputVariables>
+    <process:outputVariables/>
   </nodes>
   <nodes xsi:type="model:NodeElementLabel" id="invokeSpring0label" name="label" nodeType="label">
     <location x="255" y="186"/>
@@ -64,9 +61,7 @@
     <process:input anyType="com.jzsoft.eos.assessment.data.AssessmentObject" description="" isArray="true" name="deleted"/>
     <process:input anyType="com.jzsoft.eos.assessment.data.AssessmentObject" description="" isArray="true" name="updated"/>
   </process:inputs>
-  <process:outputs>
-    <process:output description="" isArray="false" name="success" primitiveType="Boolean"/>
-  </process:outputs>
+  <process:outputs/>
   <process:extAttribute1>public</process:extAttribute1>
   <process:transactionType>true</process:transactionType>
 </process:tBusinessLogic>

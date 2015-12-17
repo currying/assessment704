@@ -138,7 +138,8 @@
                 	if (window.parent && window.parent.refresh) {
                 		window.parent.refresh();
                 	}
-                    objectDataGrid.reload();
+                	
+                	objectDataGrid.reload();
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     alert(jqXHR.responseText);
