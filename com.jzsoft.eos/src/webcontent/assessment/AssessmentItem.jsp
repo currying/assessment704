@@ -27,30 +27,24 @@ html,body {
 
 </head>
 <body>
-	<table style="width: 100%;">
-		<thead>
-			<tr>
-				<th colspan="8"><h1>
-						<label id="title"/>
-					</h1></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>考核对象：</td>
-				<td><input class="nui-textbox" enabled="false" id="assessmentObjectTitle"
-					style="width: 200px;"></td>
-				<td></td>
-				<td>考核状态：</td>
-				<td><input class="nui-textbox" enabled="false"
-					style="width: 200px;"></td>
-				<td></td>
-				<td>考核得分：</td>
-				<td><input class="nui-textbox" enabled="false"
-					style="width: 200px;"></td>
-			</tr>
-		</tbody>
-	</table>
+	<div id="head">
+		<span id="title"></span>
+		<i id="description"></i>
+		<span >状态：</span>
+		<span id="status" style="width: 150px;"></span>
+		<span>得分：</span>
+		<span id="score" style="width: 150px;"></span>
+		<div id="toolbar">
+			<a class="nui-button " plain="true"
+				iconCls="icon-add" onclick="onClick">增加</a>
+			<a class="nui-button"
+				plain="true" iconCls="icon-edit" onclick="onClick">修改</a>
+			<a
+				class="nui-button" plain="true" iconCls="icon-remove"
+				onclick="onClick">删除</a>
+		</div>
+	</div>
+
 	<hr />
 
 	<div class="nui-fit">
@@ -133,7 +127,7 @@ html,body {
 		var itemTreeGrid = nui.get("itemTreeGrid");
 
 		var params;
-		
+
 		////////////////////////////////////////////////////////////
 		function openFrame(initParams) {
 			params = initParams;
@@ -281,8 +275,17 @@ html,body {
 							taskId : taskId
 						},
 						success : function(result) {
-							$("#title").text(result.assessmentTask.title);
-							$("#assessmentObjectTitle").text(result.assessmentTask.object.title);
+							$("#head").css("padding-top","20px");
+							$("#head").css("padding-left","20px");
+							$("#head").css("padding-bottom","10px");
+							$("#title").text(result.assessmentTask.number+" - "+result.assessmentTask.title);
+							$("#title").css("font-size","18px");
+							$("#title").css("padding-right","5px");
+							$("#description").text(result.assessmentTask.description);
+							$("#description").css("padding-right","30px");
+							$("#description").css("color","gray");
+							$("#status").css("padding-right","20px");
+							$("#toolbar").css("float","right");
 						},
 						error : function() {
 							nui.alert("FAILURE");
