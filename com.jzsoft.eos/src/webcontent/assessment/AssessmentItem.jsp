@@ -31,14 +31,14 @@ html,body {
 		<thead>
 			<tr>
 				<th colspan="8"><h1>
-						<input id="title" class="nui-textbox" enabled="false" id="title"/>
+						<label id="title"/>
 					</h1></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
 				<td>考核对象：</td>
-				<td><input class="nui-textbox" enabled="false"
+				<td><input class="nui-textbox" enabled="false" id="assessmentObjectTitle"
 					style="width: 200px;"></td>
 				<td></td>
 				<td>考核状态：</td>
@@ -274,14 +274,15 @@ html,body {
 			nui
 					.ajax({
 						async : false,
-						url : "com.jzsoft.eos.assessment.AssessmentTaskBiz.queryTaskById.biz.ext",
+						url : "com.jzsoft.eos.assessment.AssessmentTaskHead.queryTaskById.biz.ext",
 						type : "get",
 						contentType : "text/json",
 						data : {
 							taskId : taskId
 						},
 						success : function(result) {
-						nui.get("title").setText(result.assessmentTask.title);
+							$("#title").text(result.assessmentTask.title);
+							$("#assessmentObjectTitle").text(result.assessmentTask.object.title);
 						},
 						error : function() {
 							nui.alert("FAILURE");
