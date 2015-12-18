@@ -38,8 +38,8 @@
         </div>
         
         <!-- 考核对象与考核任务  -->
-        <div class="nui-fit">
-            <ul id="navTree" class="nui-tree" style="width:100%; height:100%"
+        <div class="nui-fit" style="padding-top:2px;">
+            <ul id="navTree" class="nui-tree" style="width:100%; height:100%;"
                 showTreeIcon="true" textField="name" idField="id" parentField="pid" resultAsTree="true" 
 				selectOnLoad="true" autoLoad="false" showTreeLines="false"
 				
