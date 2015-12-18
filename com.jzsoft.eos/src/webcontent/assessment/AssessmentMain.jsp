@@ -26,7 +26,7 @@
 	<!-- 左侧考核对象与考核任务面板 -->
     <div size="280px" showCollapseButton="true">
     	<!-- 考核对象与考核任务维护工具条  -->
-    	<div class="nui-toolbar" style="padding:2px;border-top:0;border-left:0;border-right:0;">
+    	<div class="nui-toolbar" style="padding:2px;border-top:0;border-left:0;border-right:0;line-height:24px;">
     	    <table style="width:100%">
             	<tr>
             		<td width="40px" align="right">名称：</td>
