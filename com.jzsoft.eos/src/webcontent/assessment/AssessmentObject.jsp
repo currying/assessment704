@@ -23,23 +23,17 @@
 <body>
 	
 	<div class="nui-toolbar" style="padding:2px;border-top:0;border-left:0;border-right:0;">
-		<table style="width: 100%;">
-			<tr>
-				<td style="width: 100%;">
-					<a class="nui-button" iconCls="icon-addfolder" plain="true"
-						onclick="onAddButtonClick">增加</a>
-					<a class="nui-button" iconCls="icon-remove" plain="true"
-						onclick="onDeleteButtonClick">删除</a>
-					<span class="separator"></span>
-					<a class="nui-button" iconCls="icon-save" plain="true"
-						onclick="onSaveButtonClick">保存</a>
-				</td>
-				<td style="white-space: nowrap;">
-					<label>过滤：</label>
-					<input id="filterText" class="nui-textbox" emptyText="请输入名称..." />
-				</td>
-			</tr>
-		</table>
+		<a class="nui-button" iconCls="icon-reload" plain="true"
+			onClick="onRefreshButtonClick">重新加载</a>
+		<span class="separator"></span>
+		<a class="nui-button" iconCls="icon-addfolder" plain="true"
+			onclick="onAddButtonClick">增加</a>
+		<a class="nui-button" iconCls="icon-remove" plain="true"
+			onclick="onDeleteButtonClick">删除</a>
+		<a class="nui-button" iconCls="icon-save" plain="true"
+			onclick="onSaveButtonClick">保存</a>
+		<span class="separator"></span>
+		<input id="filterText" class="nui-textbox" width="200px" emptyText="请输入过滤条件..." />
     </div>
     
 	<div class="nui-fit">
@@ -84,6 +78,20 @@
     	}
     	
     	// Toolbar button's event
+    	
+    	function onRefreshButtonClick(event) {
+    		var changes = objectDataGrid.getChanges();
+    		if (changes.length > 0) {
+    			nui.confirm("<div style='text-align:left'>页面数据发生变化，是否刷新？<br/>选择“确定”，重新加载数据；选择“取消”，不重新加载数据。</div>", "提示", 
+    				function(messageId) {
+    					if (messageId == "ok")
+    						objectDataGrid.reload();
+    				});
+    		} else {
+    			objectDataGrid.reload();
+    		}
+    	}
+    	
     	function onAddButtonClick(event) {
     		var row = new Object();
     		objectDataGrid.addRow(row, 0);
@@ -92,9 +100,33 @@
     	function onDeleteButtonClick(event) {
     		var rows = objectDataGrid.getSelecteds();
     		if (rows.length > 0) {
-    			objectDataGrid.removeRows(rows, true);
+    			nui.confirm("<div style='text-align:left'>您确认删除被选择的" +
+    				"<span style='color:red; font-size:18px; font-weight:bold'>&nbsp" + rows.length + "&nbsp</span>" +
+    				"条记录吗？<br/>选择“确定”，删除；选择“取消”，不删除。</div>", "提示", 
+    				function(messageId) {
+    					if (messageId == "ok")
+    						objectDataGrid.removeRows(rows, true);
+    				});
     		}
     	}
+    	
+    	nui.get("filterText").on("valuechanged", function(event) {
+			var text = event.value ? event.value : "";
+			
+			if (text == "") {
+				objectDataGrid.clearFilter();
+			} else {
+				objectDataGrid.filter(function(row) {
+					// alert(text);
+					var	name = row.name ? row.name : "";
+					var description = row.description ? row.description : "";
+					
+					return ((name.indexOf(text) != -1) || (description.indexOf(text) != -1));
+				});
+			}
+
+			return true;
+		});
     	
     	function onSaveButtonClick(event) {
             saveData();
@@ -129,15 +161,7 @@
                 	deleted: deleted,
                 	updated: updated
                 }),
-                success: function (result) { 
-                	var reload = function() {
-	                	if (window.parent && window.parent.refresh) {
-	                		window.parent.refresh();
-	                	}
-	                	
-	                	objectDataGrid.reload();
-                	};
-                
+                success: function (result) {
                 	if (result.exception) {
                 		objectDataGrid.unmask();
                 		nui.open({
@@ -149,11 +173,17 @@
 							showShadow : true,
 							onload : function() {
 								var iframe = this.getIFrameEl();
-								iframe.contentWindow.init(result.exception, reload);
+								iframe.contentWindow.init(result.exception, function() {
+									objectDataGrid.reload();
+								});
 							}
 						});
                 	} else {
-                		reload();
+                		if (window.parent && window.parent.refresh) {
+	                		window.parent.refresh();
+	                	}
+	                	
+	                	objectDataGrid.reload();
                 	}
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

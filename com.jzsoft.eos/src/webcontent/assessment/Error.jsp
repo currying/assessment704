@@ -27,8 +27,7 @@
 <body>
 
 	<div class="mini-toolbar" style="text-align:left; border:0px none; padding:8px">
-		&#12288&#12288数据保存失败，按“返回上页”，保持当前数据，返回上页继续编辑；按“重新加载”，放弃当前正在
-		编辑的数据，从服务器重新加载数据。
+		&#12288&#12288数据保存失败，按“返回上页”，保持当前数据，返回上页继续编辑；按“重新加载”，放弃当前正在编辑的数据，并从服务器重新加载数据。
 	</div>
 	
 	<div class="mini-fit" style="margin:8px">
@@ -49,8 +48,8 @@
 	</div>
 	
 	<div class="mini-toolbar" style="text-align:right;border:0px none;padding:8px">
-		<a class="nui-button" iconCls="icon-upgrade" onclick="onOkClick">返回上页</a>
-		<a class="nui-button" iconCls="icon-reload" onclick="onCancelClick">重新加载</a>
+		<a id="backButton" class="nui-button" iconCls="icon-upgrade">返回上页</a>
+		<a id="reloadButton" class="nui-button" iconCls="icon-reload">重新加载</a>
 	</div>
 
 	<script type="text/javascript">
@@ -75,6 +74,18 @@
 		function init(error, callback) {
 			errorForm = new nui.Form("#errorForm");
 			errorForm.setData(error);
+			nui.get("reloadButton").on("click", function(event) {
+				callback();
+				if (window.CloseOwnerWindow) 
+					return window.CloseOwnerWindow("reload");
+            	else window.close();
+			});
+			
+			nui.get("backButton").on("click", function(event) {
+				if (window.CloseOwnerWindow) 
+					return window.CloseOwnerWindow("back");
+            	else window.close();
+			});
 		}
     </script>
 </body>

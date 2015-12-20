@@ -49,12 +49,10 @@ public class AssessmentObjectService extends DASDaoSupport implements
 		return results;
 	}
 
-	public void saveObjects(AssessmentObject[] created,
-			AssessmentObject[] deleted, AssessmentObject[] updated) {
+	public void saveObjects(AssessmentObject[] created, AssessmentObject[] deleted, AssessmentObject[] updated) {
 		try {
 			for (AssessmentObject object : created) {
-				//object.setId(getDASTemplate().getNextSequence(
-				//		SequenceName.OBJECT_ID));
+				object.setId(getDASTemplate().getNextSequence(SequenceName.OBJECT_ID));
 			}
 		} catch (Exception e) {
 

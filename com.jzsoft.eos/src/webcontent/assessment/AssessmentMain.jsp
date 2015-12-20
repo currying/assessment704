@@ -16,6 +16,16 @@
     {
         background:url(../header.gif) repeat-x 0 -1px;
     }
+    
+    .my-toolbar ul {
+    	list-style: outside none none;
+    	margin: 0px;
+    	padding: 0px;
+    }
+    
+    .my-toolbar ul li {
+    	display: inline-block;
+    }
     </style>
 </head>
 <body>
@@ -25,20 +35,23 @@
 
 	<!-- 左侧考核对象与考核任务面板 -->
     <div size="280px" showCollapseButton="true">
+    
+
+    
+    
     	<!-- 考核对象与考核任务维护工具条  -->
-    	<div class="nui-toolbar" style="padding:2px;border-top:0;border-left:0;border-right:0;">
-    	    <table style="width:100%">
-            	<tr>
-            		<td width="40px" align="right">名称：</td>
-            		<td>
-            			<input id="searchText" class="nui-textbox" style="width:100%" emptyText="请输入名称..."></input>
-					</td>
-            	</tr>
-            </table>
+    	<div class="nui-toolbar my-toolbar" style="padding:2px; border-top:0; border-left:0; border-right:0">
+			
+			<a id="filterButton" class="nui-button" iconCls="icon-search" plain="true"
+				></a>
+			
+			<input id="filterText" style="right:0px" class="nui-textbox" emptyText="请输入过滤条件..."></input>
+			
         </div>
         
+        
         <!-- 考核对象与考核任务  -->
-        <div class="nui-fit">
+        <div class="nui-fit" style="padding-top:4px">
             <ul id="navTree" class="nui-tree" style="width:100%; height:100%"
                 showTreeIcon="true" textField="name" idField="id" parentField="pid" resultAsTree="true" 
 				selectOnLoad="true" autoLoad="false" showTreeLines="false"
@@ -146,18 +159,19 @@
 	}
 	
 	// Toolbar Buttons Event
-	nui.get("searchText").on("valuechanged", function(event) {
+	nui.get("filterText").on("valuechanged", function(event) {
 		// var text = event.text;//
 		// console.log(event);
 		var text = event.value ? event.value : "";
 		filterNavTree(text);
 	});
 	
-	// Global Function
-	function getNavTree() {
-		return navTree;
-	}
+	nui.get("filterButton").on("click", function(event) {
+		var text = nui.get("filterText").getValue();
+		alert(text);
+	});
 	
+	// Global Function
 	function refresh() {
 		var node = navTree.getSelectedNode();
 		navTree.loadNode(node);
