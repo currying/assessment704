@@ -41,18 +41,15 @@
     
     	<!-- 考核对象与考核任务维护工具条  -->
     	<div class="nui-toolbar my-toolbar" style="padding:2px; border-top:0; border-left:0; border-right:0">
-			
-			<a id="filterButton" class="nui-button" iconCls="icon-search" plain="true"
-				></a>
+			<a id="filterButton" class="nui-button" iconCls="icon-search" plain="true"></a>
 			
 			<input id="filterText" style="right:0px" class="nui-textbox" emptyText="请输入过滤条件..."></input>
-			
         </div>
         
         
         <!-- 考核对象与考核任务  -->
-        <div class="nui-fit" style="padding-top:4px">
-            <ul id="navTree" class="nui-tree" style="width:100%; height:100%"
+        <div class="nui-fit" style="padding-top:2px;">
+            <ul id="navTree" class="nui-tree" style="width:100%; height:100%;"
                 showTreeIcon="true" textField="name" idField="id" parentField="pid" resultAsTree="true" 
 				selectOnLoad="true" autoLoad="false" showTreeLines="false"
 				

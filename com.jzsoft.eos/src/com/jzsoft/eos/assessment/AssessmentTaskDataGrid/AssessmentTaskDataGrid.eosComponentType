@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.primeton.studio.component.core.EosComponentTypeInfo>
+  <description>
+    <version>6.0</version>
+    <displayName>AssessmentTaskDataGrid</displayName>
+    <author>LUCHAO</author>
+    <createdTime>2015-12-20 14:20:35</createdTime>
+    <description></description>
+    <detailDescription></detailDescription>
+    <demo></demo>
+    <links></links>
+  </description>
+  <serviceReferences/>
+</com.primeton.studio.component.core.EosComponentTypeInfo>
