@@ -35,11 +35,7 @@
 
 	<!-- 左侧考核对象与考核任务面板 -->
     <div size="280px" showCollapseButton="true">
-    
-
-    
-    
-    	<!-- 考核对象与考核任务维护工具条  -->
+	<!-- 考核对象与考核任务维护工具条  -->
     	<div class="nui-toolbar my-toolbar" style="padding:2px; border-top:0; border-left:0; border-right:0">
 			<a id="filterButton" class="nui-button" iconCls="icon-search" plain="true"></a>
 			
@@ -53,7 +49,7 @@
                 showTreeIcon="true" textField="name" idField="id" parentField="pid" resultAsTree="true" 
 				selectOnLoad="true" autoLoad="false" showTreeLines="false"
 				
-                url="com.jzsoft.eos.assessment.AssessmentNavTree.loadData.biz.ext"
+                url="com.jzsoft.eos.assessment.AssessmentNavigator.loadData.biz.ext"
                 
                 onBeforeLoad="onNavTreeBeforeLoad"
                 onPreLoad="onNavTreePreLoad"
