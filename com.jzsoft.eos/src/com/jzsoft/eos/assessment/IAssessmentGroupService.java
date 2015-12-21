@@ -8,5 +8,5 @@ public interface IAssessmentGroupService {
 
 	public AssessmentGroup[] getGroupsByParentId(Long parentId);
 
-	public AssessmentGroup[] getHierarchyGroupsByTaskId(Long taskId);
+	public AssessmentGroup[] getCascadeGroupsByTaskId(Long taskId);
 }

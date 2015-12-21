@@ -55,7 +55,7 @@ public class AssessmentGroupService extends DASDaoSupport implements
 		return results;
 	}
 
-	public AssessmentGroup[] getHierarchyGroupsByTaskId(Long taskId) {
+	public AssessmentGroup[] getCascadeGroupsByTaskId(Long taskId) {
 		IDASCriteria dasCriteria = getDASTemplate().createCriteria(
 				AssessmentGroup.QNAME);
 		dasCriteria.add(ExpressionHelper.eq("task.id", taskId));

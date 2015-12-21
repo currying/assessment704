@@ -35,19 +35,19 @@ html,body {
 		<a class="nui-button" iconCls="icon-save" plain="true"
 			onclick="onSaveButtonClick">保存</a> <span class="separator"></span> <a
 			class="nui-button" iconCls="icon-user" plain="true"
-			onclick="onGroupButtonClick">考评组</a> <span class="separator"></span> <input
-			id="filterText" class="nui-textbox" emptyText="请输入过滤条件..." />
+			onclick="onGroupButtonClick">考评组</a> <span class="separator"></span>
+		<input id="filterText" class="nui-textbox" emptyText="请输入过滤条件..." />
 	</div>
 
 	<!-- taskDataGrid展示页面 -->
 	<div class="nui-fit">
 		<div id="taskDataGrid" class="nui-datagrid"
-			style="width:100%; height:100%" borderStyle="border:0" idField="id"
+			style="width: 100%; height: 100%" borderStyle="border:0" idField="id"
 			dataField="tasks" autoLoad="false" multiSelect="true"
 			selectOnLoad="true" showModified="true" fitColumns="true"
 			allowCellEdit="true" allowCellSelect="true"
 			url="com.jzsoft.eos.assessment.AssessmentTaskDataGrid.loadData.biz.ext">
-	
+
 			<div property="columns">
 				<div type="indexcolumn" width="30" headerAlign="center">行号</div>
 				<div type="checkcolumn" width="30"></div>
@@ -133,10 +133,10 @@ html,body {
 								});
 			}
 		}
-		
+
 		function onGroupButtonClick(event) {
 			var rows = taskDataGrid.getSelecteds();
-			
+
 			if (rows.length <= 0) {
 				nui.alert("请先选择一条任务，再进行考评组设置。");
 			} else {
@@ -235,8 +235,23 @@ html,body {
 						}
 					});
 		}
-		
+
 		function showGroupEditor() {
+			nui.open({
+				url : "AssessmentGroup.jsp",
+				title : "考评组",
+				width : 900,
+				height : 540,
+				allowResize : false,
+				showShadow : true,
+				onload : function() {
+					var iframe = this.getIFrameEl();
+					// iframe.contentWindow.init(node, callback);
+				},
+				ondestroy : function(action) {
+					// grid.reload();
+				}
+			});
 		}
 	</script>
 </body>
