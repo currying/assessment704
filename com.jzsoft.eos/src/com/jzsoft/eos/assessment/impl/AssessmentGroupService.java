@@ -7,6 +7,7 @@ import com.eos.das.entity.ExpressionHelper;
 import com.eos.das.entity.IDASCriteria;
 import com.eos.spring.DASDaoSupport;
 import com.jzsoft.eos.assessment.IAssessmentGroupService;
+import com.jzsoft.eos.assessment.SequenceName;
 import com.jzsoft.eos.assessment.data.AssessmentGroup;
 
 /**
@@ -39,8 +40,7 @@ public class AssessmentGroupService extends DASDaoSupport implements
 		AssessmentGroup[] results = getDASTemplate()
 				.queryEntitiesByCriteriaEntity(AssessmentGroup.class,
 						dasCriteria);
-		System.out
-				.println("getGroupsByTaskId " + taskId + " " + results.length);
+		
 		return results;
 	}
 
@@ -77,5 +77,20 @@ public class AssessmentGroupService extends DASDaoSupport implements
 		for (int i = 0; i < group.getChildren().size(); i++) {
 			loadChildren(group.getChildren().get(i));
 		}
+	}
+
+	public void saveGroups(AssessmentGroup[] created,
+			AssessmentGroup[] deleted, AssessmentGroup[] updated) {
+		try {
+			for (AssessmentGroup object : created) {
+				object.setId(getDASTemplate().getNextSequence(
+						SequenceName.GROUP_ID));
+			}
+		} catch (Exception e) {
+
+		}
+		getDASTemplate().insertEntityBatch(created);
+		getDASTemplate().deleteEntityBatch(deleted);
+		getDASTemplate().updateEntityBatch(updated);
 	}
 }

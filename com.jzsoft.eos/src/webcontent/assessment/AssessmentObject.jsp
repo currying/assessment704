@@ -40,7 +40,7 @@
 		<div id="objectDataGrid" class="nui-datagrid" style="width:100%; height:100%" borderStyle="border:0"
 			idField="id" dataField="objects" autoLoad="true" multiSelect="true" selectOnLoad="true"
 			showModified="true" fitColumns="true" allowCellEdit="true" allowCellSelect="true"
-			url="com.jzsoft.eos.assessment.AssessmentObjectDataGrid.loadData.biz.ext">
+			url="com.jzsoft.eos.assessment.AssessmentObject.loadData.biz.ext">
 			
 			<div property="columns">
 		        <div type="indexcolumn" headerAlign="center" width="30px">行号</div>
@@ -154,7 +154,7 @@
     		
     		objectDataGrid.loading("保存中，请稍后......");
             nui.ajax({
-                url: "com.jzsoft.eos.assessment.AssessmentObjectDataGrid.saveData.biz.ext",
+                url: "com.jzsoft.eos.assessment.AssessmentObject.saveData.biz.ext",
                 type: 'POST',
                 data: nui.encode({
                 	created: created,

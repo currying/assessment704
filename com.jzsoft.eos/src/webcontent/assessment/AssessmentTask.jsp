@@ -46,7 +46,7 @@ html,body {
 			dataField="tasks" autoLoad="false" multiSelect="true"
 			selectOnLoad="true" showModified="true" fitColumns="true"
 			allowCellEdit="true" allowCellSelect="true"
-			url="com.jzsoft.eos.assessment.AssessmentTaskDataGrid.loadData.biz.ext">
+			url="com.jzsoft.eos.assessment.AssessmentTask.loadData.biz.ext">
 
 			<div property="columns">
 				<div type="indexcolumn" width="30" headerAlign="center">行号</div>
@@ -197,7 +197,7 @@ html,body {
 			taskDataGrid.loading("保存中，请稍后......");
 			nui
 					.ajax({
-						url : "com.jzsoft.eos.assessment.AssessmentTaskDataGrid.saveData.biz.ext",
+						url : "com.jzsoft.eos.assessment.AssessmentTask.saveData.biz.ext",
 						type : 'POST',
 						data : nui.encode({
 							created : created,
@@ -236,7 +236,7 @@ html,body {
 					});
 		}
 
-		function showGroupEditor() {
+		function showGroupEditor(taskId) {
 			nui.open({
 				url : "AssessmentGroup.jsp",
 				title : "考评组",
@@ -246,10 +246,9 @@ html,body {
 				showShadow : true,
 				onload : function() {
 					var iframe = this.getIFrameEl();
-					// iframe.contentWindow.init(node, callback);
-				},
-				ondestroy : function(action) {
-					// grid.reload();
+					var params = new Object();
+					params.taskId = taskId;
+					iframe.contentWindow.openFrame(params);
 				}
 			});
 		}
