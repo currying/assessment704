@@ -33,7 +33,7 @@
 		<a class="nui-button" iconCls="icon-save" plain="true"
 			onclick="onSaveButtonClick">保存</a>
 		<span class="separator"></span>
-		<input id="filterText" class="nui-textbox" width="200px" emptyText="请输入过滤条件..." />
+		<input id="filterText" class="nui-textbox" emptyText="请输入过滤条件..." />
     </div>
     
 	<div class="nui-fit">

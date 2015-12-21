@@ -7,6 +7,7 @@ import com.eos.das.entity.ExpressionHelper;
 import com.eos.das.entity.IDASCriteria;
 import com.eos.spring.DASDaoSupport;
 import com.jzsoft.eos.assessment.IAssessmentTaskService;
+import com.jzsoft.eos.assessment.SequenceName;
 import com.jzsoft.eos.assessment.data.AssessmentTask;
 
 /**
@@ -49,6 +50,7 @@ public class AssessmentTaskService extends DASDaoSupport implements
 		AssessmentTask[] results = getDASTemplate()
 				.queryEntitiesByCriteriaEntity(AssessmentTask.class,
 						dasCriteria);
+		
 		return results;
 	}
 
@@ -63,5 +65,18 @@ public class AssessmentTaskService extends DASDaoSupport implements
 			return results[0];
 		else
 			return null;
+	}
+	
+	public void saveTasks(AssessmentTask[] created, AssessmentTask[] deleted, AssessmentTask[] updated) {
+		try {
+			for (AssessmentTask object : created) {
+				object.setId(getDASTemplate().getNextSequence(SequenceName.TASK_ID));
+			}
+		} catch (Exception e) {
+
+		}
+		getDASTemplate().insertEntityBatch(created);
+		getDASTemplate().deleteEntityBatch(deleted);
+		getDASTemplate().updateEntityBatch(updated);
 	}
 }
