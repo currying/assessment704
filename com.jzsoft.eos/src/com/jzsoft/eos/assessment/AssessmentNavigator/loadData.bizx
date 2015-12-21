@@ -39,12 +39,12 @@
   </nodes>
   <nodes xsi:type="model:NodeElementLabel" id="start0label" name="label" displayName="label" nodeType="label">
     <location x="102" y="186"/>
-    <figSize height="17" width="25"/>
+    <figSize height="12" width="25"/>
     <node>start0</node>
   </nodes>
   <nodes xsi:type="model:NodeElementLabel" id="end0label" name="label" displayName="label" nodeType="label">
     <location x="527" y="186"/>
-    <figSize height="17" width="25"/>
+    <figSize height="12" width="25"/>
     <node>end0</node>
   </nodes>
   <nodes xsi:type="process:tInvoke" description="" id="invokeSpring0" name="getAllObjects" displayName="getAllObjects" type="invoke" index="0" invokeType="invoke_spring" varArgs="false">
@@ -68,7 +68,7 @@
   </nodes>
   <nodes xsi:type="model:NodeElementLabel" id="invokeSpring0label" name="label" nodeType="label">
     <location x="228" y="186"/>
-    <figSize height="17" width="78"/>
+    <figSize height="12" width="79"/>
     <node>invokeSpring0</node>
   </nodes>
   <nodes xsi:type="process:tInvoke" description="" id="invokeSpring1" name="getTasksByObjectId" displayName="getTasksByObjectId" type="invoke" index="0" invokeType="invoke_spring" varArgs="false">
@@ -92,8 +92,8 @@
     </process:outputVariables>
   </nodes>
   <nodes xsi:type="model:NodeElementLabel" id="invokeSpring1label" name="label" nodeType="label">
-    <location x="209" y="281"/>
-    <figSize height="17" width="117"/>
+    <location x="213" y="281"/>
+    <figSize height="12" width="109"/>
     <node>invokeSpring1</node>
   </nodes>
   <nodes xsi:type="process:tAssign" description="" id="assign0" name="isObjects = false" displayName="赋值" type="assign">
@@ -111,8 +111,8 @@
     </process:copy>
   </nodes>
   <nodes xsi:type="model:NodeElementLabel" id="assign0label" name="label" nodeType="label">
-    <location x="343" y="281"/>
-    <figSize height="17" width="98"/>
+    <location x="341" y="281"/>
+    <figSize height="12" width="103"/>
     <node>assign0</node>
   </nodes>
   <nodes xsi:type="process:tAssign" description="" id="assign1" name="isObjects = true" displayName="赋值" type="assign">
@@ -130,8 +130,8 @@
     </process:copy>
   </nodes>
   <nodes xsi:type="model:NodeElementLabel" id="assign1label" name="label" nodeType="label">
-    <location x="344" y="186"/>
-    <figSize height="17" width="94"/>
+    <location x="343" y="186"/>
+    <figSize height="12" width="97"/>
     <node>assign1</node>
   </nodes>
   <topRuler/>
