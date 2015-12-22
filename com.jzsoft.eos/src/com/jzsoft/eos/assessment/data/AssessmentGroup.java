@@ -27,7 +27,7 @@ import java.util.List;
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getId <em>Id</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getName <em>Name</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getEmail <em>Email</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getIsGroup <em>IsGroup</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getIsUser <em>IsUser</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getAccessCode <em>AccessCode</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getStatus <em>Status</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getDescription <em>Description</em>}</li>
@@ -119,26 +119,26 @@ public interface AssessmentGroup extends DataObject {
 	public void setEmail(String email);
 
 	/**
-	 * Returns the value of the '<em><b>IsGroup</b></em>' attribute.
+	 * Returns the value of the '<em><b>IsUser</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>IsGroup</em>' attribute isn't clear,
+	 * If the meaning of the '<em>IsUser</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>IsGroup</em>' attribute.
-	 * @see #setIsGroup(boolean)
+	 * @return the value of the '<em>IsUser</em>' attribute.
+	 * @see #setIsUser(boolean)
 	 */
-	public boolean getIsGroup();
+	public boolean getIsUser();
 
 	/**
-	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getIsGroup <em>IsGroup</em>}' attribute.
+	 * Sets the value of the '{@link com.jzsoft.eos.assessment.data.AssessmentGroup#getIsUser <em>IsUser</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>IsGroup</em>' attribute.
-	 * @see #getIsGroup()
+	 * @param value the new value of the '<em>IsUser</em>' attribute.
+	 * @see #getIsUser()
 	 */
-	public void setIsGroup(boolean isGroup);
+	public void setIsUser(boolean isUser);
 
 	/**
 	 * Returns the value of the '<em><b>AccessCode</b></em>' attribute.

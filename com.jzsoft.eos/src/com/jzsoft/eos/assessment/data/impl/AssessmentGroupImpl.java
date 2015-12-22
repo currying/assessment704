@@ -28,7 +28,7 @@ import java.util.List;
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentGroupImpl#getId <em>Id</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentGroupImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentGroupImpl#getEmail <em>Email</em>}</li>
- *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentGroupImpl#getIsGroup <em>IsGroup</em>}</li>
+ *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentGroupImpl#getIsUser <em>IsUser</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentGroupImpl#getAccessCode <em>AccessCode</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentGroupImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link com.jzsoft.eos.assessment.data.impl.AssessmentGroupImpl#getDescription <em>Description</em>}</li>
@@ -52,7 +52,7 @@ public class AssessmentGroupImpl extends ExtendedDataObjectImpl implements Asses
 	public final static int INDEX_ID = 0;
 	public final static int INDEX_NAME = 1;
 	public final static int INDEX_EMAIL = 2;
-	public final static int INDEX_ISGROUP = 3;
+	public final static int INDEX_ISUSER = 3;
 	public final static int INDEX_ACCESSCODE = 4;
 	public final static int INDEX_STATUS = 5;
 	public final static int INDEX_DESCRIPTION = 6;
@@ -163,29 +163,29 @@ public class AssessmentGroupImpl extends ExtendedDataObjectImpl implements Asses
 	}
 
 	/**
-	 * Returns the value of the '<em><b>IsGroup</b></em>' attribute.
+	 * Returns the value of the '<em><b>IsUser</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>IsGroup</em>' attribute isn't clear,
+	 * If the meaning of the '<em>IsUser</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>IsGroup</em>' attribute.
-	 * @see #setIsGroup(boolean)
+	 * @return the value of the '<em>IsUser</em>' attribute.
+	 * @see #setIsUser(boolean)
 	 */
-	public boolean getIsGroup() {
-		return DataUtil.toBoolean(super.getByIndex(INDEX_ISGROUP, true));
+	public boolean getIsUser() {
+		return DataUtil.toBoolean(super.getByIndex(INDEX_ISUSER, true));
 	}
 
 	/**
-	 * Sets the value of the '{@link com.primeton.eos.Test#getIsGroup <em>IsGroup</em>}' attribute.
+	 * Sets the value of the '{@link com.primeton.eos.Test#getIsUser <em>IsUser</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>IsGroup</em>' attribute.
-	 * @see #getIsGroup()
+	 * @param value the new value of the '<em>IsUser</em>' attribute.
+	 * @see #getIsUser()
 	 */
-	public void setIsGroup(boolean isGroup) {
-		super.setByIndex(INDEX_ISGROUP, isGroup);
+	public void setIsUser(boolean isUser) {
+		super.setByIndex(INDEX_ISUSER, isUser);
 	}
 
 	/**

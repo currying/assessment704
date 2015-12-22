@@ -27,11 +27,11 @@ html,body {
 
 </head>
 <body>
-	<div class="nui-splitter"
-		style="width:100%; height:100%" borderStyle="border:0">
+	<div class="nui-splitter" style="width: 100%; height: 100%"
+		borderStyle="border:0">
 		<div size="280px">
 			<div class="nui-toolbar my-toolbar"
-				style="padding:2px; border-top:0; border-left:0; border-right:0">
+				style="padding: 2px; border-top: 0; border-left: 0; border-right: 0">
 
 				<a id="filterButton" class="nui-button" iconCls="icon-search"
 					plain="true"></a>
@@ -40,14 +40,14 @@ html,body {
 
 			<div class="nui-fit" style="padding-top: 2px;">
 				<div id="groupTree" class="nui-tree"
-					style="width: 100%; height: 100%;" showTreeIcon="true" dataField="groups"
-					textField="name" idField="id" resultAsTree="false"
-					selectOnLoad="true" autoLoad="false" showTreeLines="false"
+					style="width: 100%; height: 100%;" showTreeIcon="true"
+					dataField="groups" textField="name" idField="id"
+					resultAsTree="false" selectOnLoad="true" autoLoad="false"
+					showTreeLines="false"
 					url="com.jzsoft.eos.assessment.AssessmentGroup.loadData.biz.ext"
-					
 					onBeforeLoad="onGroupTreeBeforeLoad" onPreLoad="onGroupTreePreLoad"
-					onNodeSelect="onGroupTreeNodeSelect">
-				</div>
+					onNodeSelect="onGroupTreeNodeSelect"
+					onBeforeNodeSelect="onGroupTreeBeforeNodeSelect"></div>
 			</div>
 		</div>
 
@@ -63,7 +63,7 @@ html,body {
 				<a class="nui-button" iconCls="icon-save" plain="true"
 					onclick="onSaveButtonClick">保存</a> <span class="separator"></span>
 				<a class="nui-button" iconCls="icon-close" plain="true"
-					onclick="onSaveButtonClick">退出</a>
+					onclick="onExitButtonClick">退出</a>
 
 			</div>
 
@@ -82,7 +82,7 @@ html,body {
 							名称<input property="editor" class="nui-textbox"
 								style="width: 100%;"></input>
 						</div>
-						<div field="isUser" width="30" headerAlign="center">标志</div>
+						<div type="checkboxcolumn" field="isUser" width="30" headerAlign="center">人员</div>
 						<div field="email" width="80" headerAlign="center">
 							电子邮件 <input property="editor" class="nui-textbox"
 								style="width: 100%;"></input>
@@ -142,22 +142,49 @@ html,body {
 		function onGroupTreePreLoad(event) {
 			var data = event.data;
 			data.forEach(function(group) {
-				group.isLeaf = false;
-				group.expanded = false;
+				if (group.isUser == true) {
+					group.isLeaf = true;
+					group.iconCls = "icon-user";
+				} else {
+					group.isLeaf = false;
+					group.expanded = false;
+				}
 			});
 		}
-		
+
+		function onGroupTreeBeforeNodeSelect(event) {
+			var changes = groupDataGrid.getChanges();
+
+			if (changes.length > 0) {
+				var isOk = confirm("页面数据发生变化，是否需要保存");
+				if (isOk == true) {
+					event.cancel = true;
+				}
+			}
+		}
+
 		function onGroupTreeNodeSelect(event) {
 			var tree = event.sender;
 			var node = event.node;
-			
+
 			if (tree.getLevel(node) == 0) {
-				groupDataGrid.load({isRoot: true, id: initParams.taskId});
+				groupDataGrid.load({
+					isRoot : true,
+					id : initParams.taskId
+				});
 			} else {
-				groupDataGrid.load({isRoot: false, id: node.id});
+				groupDataGrid.load({
+					isRoot : false,
+					id : node.id
+				});
 			}
 		}
-		
+
+		function refresh() {
+			var node = groupTree.getSelectedNode();
+			groupTree.loadNode(node);
+		}
+
 		// Group data grid
 		function onRefreshButtonClick(event) {
 			var changes = groupDataGrid.getChanges();
@@ -173,21 +200,23 @@ html,body {
 				groupDataGrid.reload();
 			}
 		}
-		
+
 		function onAddButtonClick(event) {
 			var row = new Object();
 			row.task = new Object();
 			row.task.id = initParams.taskId;
-			
+
 			var node = groupTree.getSelectedNode();
 			if (node.id != undefined) {
 				row.parent = new Object;
 				row.parent.id = node.id;
 			}
-			
+
+			row.isUser = true;
+
 			groupDataGrid.addRow(row, 0);
 		}
-		
+
 		function onDeleteButtonClick(event) {
 			var rows = groupDataGrid.getSelecteds();
 			if (rows.length > 0) {
@@ -204,11 +233,29 @@ html,body {
 								});
 			}
 		}
-		
+
 		function onSaveButtonClick(event) {
 			saveData();
 		}
-		
+
+		function onExitButtonClick(event) {
+			var changes = groupDataGrid.getChanges();
+			if (changes.length > 0) {
+				var isOk = confirm("页面数据发生变化，是否需要保存？");
+				if (isOk == false) {
+					if (window.CloseOwnerWindow)
+						return window.CloseOwnerWindow("cancel");
+					else
+						window.close();
+				}
+			} else {
+				if (window.CloseOwnerWindow)
+					return window.CloseOwnerWindow("cancel");
+				else
+					window.close();
+			}
+		}
+
 		function saveData() {
 			var changes = groupDataGrid.getChanges();
 			if (changes.length == 0)
@@ -259,6 +306,7 @@ html,body {
 							} else {
 								//
 								groupDataGrid.reload();
+								refresh();
 							}
 						},
 						error : function(jqXHR, textStatus, errorThrown) {
